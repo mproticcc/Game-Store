@@ -4,9 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Use command 'npm run start-app' in terminal to start application,
-Use command 'npm run start-database' in terminal to start up json database
-Use command 'start-all' in terminal to start whole application
+Run `npm run start-app `in terminal to start application
+
+Run `npm run start-database` in terminal to start up json database
+
+Run `start-all` in terminal to start whole application
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
