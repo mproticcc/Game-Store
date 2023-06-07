@@ -1,0 +1,106 @@
+@import "../../../../../assets/styles/variables";
+.wrapper-overview {
+  position: relative;
+  margin: 0;
+
+  h3,
+  h2 {
+    color: $h-color;
+  }
+  p {
+    color: $p-color;
+  }
+}
+.wrapper-container {
+  top: -200px;
+  position: relative;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  margin: auto;
+  z-index: 1;
+  width: 70%;
+}
+
+.main-image {
+  position: relative;
+  display: block;
+  background: transparent;
+  z-index: 1;
+
+  img {
+    position: relative;
+    border-radius: 10px;
+  }
+}
+
+.container {
+  position: relative;
+  padding-top: 0px;
+  margin-left: 10%;
+  width: 50%;
+  backdrop-filter: blur(10px);
+  background-color: transparent;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 17px;
+
+  p {
+    color: $p2-color;
+  }
+
+  a {
+    text-decoration: none;
+    color: #ff8000;
+
+    &:hover {
+      color: $link-hover;
+    }
+  }
+}
+
+button {
+  margin-top: 20px;
+  border-radius: 11px;
+  font-weight: 700;
+  font-size: 17px;
+  background: $fire-gradient;
+  color: $h-color;
+  height: 56px;
+  width: 250px;
+  box-sizing: border-box;
+  padding: 0 30px;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.8s;
+
+  &:hover {
+    background: $fire-gradient-hv;
+  }
+}
+
+.wallpaper-image {
+  position: relative;
+  width: 100%;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+.about-game {
+  margin-top: 50px;
+  width: 80%;
+}
+
+.game-specification {
+  margin: 20px;
+  padding: 20px;
+  display: block;
+  width: 70%;
+  margin: auto;
+}

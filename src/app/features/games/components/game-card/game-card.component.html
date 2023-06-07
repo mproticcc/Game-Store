@@ -1,0 +1,20 @@
+<div class="wrapper" [appPrice]="game.price">
+  <div class="main-content">
+    <img [src]="game.image" />
+    <div class="container">
+      <button [routerLink]="['/games', game.id]">{{ game.name }}</button><br />
+      <p>
+        Video: <a [href]="game.videoLink">{{ game.name }} official trailer</a>
+      </p>
+      <p>
+        Creator: <i>{{ game | creator }}</i>
+      </p>
+
+      <p>Price: {{ game.price | currency : " " }} dinars</p>
+
+      <p>Publish date: {{ game.publishDate | date : "EEEE M.Y h:mm" }}</p>
+
+      <p class="description">{{ game.description | descriptionLimit : 45 }}</p>
+    </div>
+  </div>
+</div>

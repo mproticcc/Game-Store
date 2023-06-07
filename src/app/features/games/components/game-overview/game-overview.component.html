@@ -1,1 +1,43 @@
-<p>game-overview works!</p>
+<div class="wrapper-overview" *ngIf="game; else elseBlock">
+  <div class="wallpaper-image"><img [src]="game.imageWallpaper" /></div>
+  <div class="wrapper-container">
+    <div class="main">
+      <div class="main-image">
+        <img [src]="game.image" [alt]="game.name" />
+        <div class="about-game">
+          <h3>ABOUT THIS GAME</h3>
+          <p>
+            {{ game.description }}
+          </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <br />
+        <h2>{{ game.name }}</h2>
+        <p>
+          Creator: <i>{{ game | creator }}</i>
+        </p>
+        <p>Price: {{ game.price | currency : " " }} dinars</p>
+        <p>
+          Video: <a [href]="game.videoLink">{{ game.name }} official trailer</a>
+        </p>
+        <p>Publish date: {{ game.publishDate | date : "EEEE M.Y h:mm" }}</p>
+        <br />
+
+        <button [routerLink]="['']" class="buttonCloseOver">Close</button>
+      </div>
+    </div>
+
+    <div class="game-specification">
+      <div>
+        <h3>{{ game.name }} System Requirements</h3>
+        <p>{{ game.specification }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <!-- <app-not-found text="ERROR, GAME DOES NOT EXIST"></app-not-found> --></ng-template
+>
