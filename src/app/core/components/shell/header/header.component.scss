@@ -1,0 +1,55 @@
+@import "../../../../../assets/styles/variables";
+
+.wrapper {
+  background-color: $header-color;
+  color: white;
+  position: relative;
+  display: grid;
+  border-radius: 8px;
+
+  h1 {
+    margin-left: 10px;
+    margin-bottom: 1px;
+  }
+
+  button {
+    color: white;
+    font-size: 20px;
+    padding: 7px;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    margin: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $bg-color;
+      text-decoration: underline;
+      text-decoration-color: $link;
+    }
+  }
+
+  .navigation {
+    height: 52px;
+    display: inline-flex;
+    position: relative;
+    margin: auto;
+
+    .right {
+      position: relative;
+      right: 0;
+      float: right;
+    }
+
+    .navigation-links {
+      position: relative;
+      display: inline;
+    }
+  }
+}
+
+.material-icons {
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+}
