@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <h1>GameZone</h1>
+  <h1 [routerLink]="['']">GameZone</h1>
   <div class="navigation">
     <div class="navigation-links" *ngFor="let link of links">
       <button [routerLinkActive]="['active']" [routerLink]="[link.path]">

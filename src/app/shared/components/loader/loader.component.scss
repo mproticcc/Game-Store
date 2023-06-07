@@ -1,0 +1,10 @@
+@import "../../../../assets/styles/variables";
+
+p {
+  color: $link;
+}
+
+:host ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #ff8000;
+}
