@@ -1,0 +1,189 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "name": "Grand Theft Auto V",
+      "image": "assets/images/games/gta5.jpg",
+      "imageWallpaper": "assets/images/games/gta5-wallpaper.jpg",
+      "videoLink": "https://www.youtube.com/watch?v=QkkoHAzjnUs&ab_channel=RockstarGames",
+      "price": 5999,
+      "description": "When a young street hustler, a retired bank robber, and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government, and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody — least of all each other",
+      "specification": "CPU: Intel Core i5 3470 @ 3.2GHz (4 CPUs) / AMD X8 FX-8350 @ 4GHz (8 CPUs) \nCPU SPEED: Info \nRAM: 8 GB \nVIDEO CARD: NVIDIA GTX 660 2GB / AMD HD 7870 2GB \nDEDICATED VIDEO RAM: 2 GB \nPIXEL SHADER: 5.0 \nVERTEX SHADER: 5.0 \nOS: Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1 \nFREE DISK SPACE: 72 GB \nSOUND CARD: 100% DirectX 10 compatible",
+      "creatorFirstName": "Leslie",
+      "creatorLastName": "Benzies",
+      "publishDate": "2013-09-17T10:58:01.113Z",
+      "platforms": [1, 2, 3],
+      "createdAt": null,
+      "deletedAt": null,
+      "modifiedAt": null
+    },
+    {
+      "id": 2,
+      "name": "Mafia III",
+      "image": "assets/images/games/mafia3.jpg",
+      "imageWallpaper": "assets/images/games/mafia3-wallpaper.jpg",
+      "videoLink": "https://www.youtube.com/watch?v=tM5XkXUXaZo&ab_channel=IGN",
+      "price": 3600,
+      "description": "Part three of the Mafia crime saga - 1968, New Bordeaux, LA. After years of combat in Vietnam, Lincoln Clay knows this truth: family isn’t who you’re born with, it’s who you die for. When his surrogate family is wiped out by the Italian Mafia, Lincoln builds a new family and blazes a path of revenge through the Mafioso responsible.",
+      "specification": "CPU: Intel I7-3770, AMD FX 8350 4.0 Ghz \nCPU SPEED: Info \nRAM: 8 GB \nVIDEO CARD: 4 GB of Video Memory and NVIDIA Gefore GTX 780 or GeForce GTX 1060, AMD Radeon R9 290X \nDEDICATED VIDEO RAM: 4 GB \nPIXEL SHADER: 5.0 \nVERTEX SHADER: 5.0 \nOS: Windows 7 64-bit \nFREE DISK SPACE: 50 GB \nSOUND CARD: DirectX Compliant Sound card",
+      "creatorFirstName": "Matthias",
+      "creatorLastName": "Worch",
+      "publishDate": "2016-10-07T10:58:01.113Z",
+      "platforms": [1, 2],
+      "createdAt": null,
+      "deletedAt": null,
+      "modifiedAt": null
+    },
+    {
+      "id": 3,
+      "name": "Need For Speed",
+      "image": "assets/images/games/need_for_speed.jpg",
+      "imageWallpaper": "assets/images/games/need_for_speed-wallpaper.jpg",
+      "videoLink": "https://www.youtube.com/watch?v=2FhCCBXhNr4&ab_channel=PlayStation",
+      "price": 2700,
+      "description": "Ready to own the streets? Get behind the wheel of iconic cars and floor it through Ventura Bay, a sprawling urban playground. Explore overlapping stories as you build your reputation – and your dream car – and become the ultimate racing icon. Play again and again because this time, you have 5 distinct ways to win.",
+      "specification": "CPU: Intel Core i5-4690 or equivalent with 4 hardware threads\nCPU SPEED: Info \nRAM: 8 GB \nVIDEO CARD: NVIDIA GeForce GTX 970 4GB, AMD Radeon R9 290 4GB, or equivalent DX11 compatible GPU with 4GB of memory \nDEDICATED VIDEO RAM: 4096 MB \nPIXEL SHADER: 5.1 \nVERTEX SHADER: 5.1 \nOS: 64-bit Windows 7 or later \nFREE DISK SPACE: 30 GB",
+      "creatorFirstName": "Ghost ",
+      "creatorLastName": "Games",
+      "publishDate": "2016-3-15T10:58:01.113Z",
+      "platforms": [1, 2, 3],
+      "createdAt": null,
+      "deletedAt": null,
+      "modifiedAt": null
+    },
+    {
+      "id": 4,
+      "name": "Assassin's Creed® Syndicate",
+      "image": "assets/images/games/assassin-s-creed-syndicate.jpg",
+      "imageWallpaper": "assets/images/games/assassin-s-creed-syndicate-wallpaper.jpg",
+      "videoLink": "https://www.youtube.com/watch?v=WTBbwgsyxvg&ab_channel=Ubisoft",
+      "price": 4100,
+      "description": "London, 1868. In the heart of the Industrial Revolution, lead your underworld organization and grow your influence to fight those who exploit the less privileged in the name of progress: As Jacob Frye, a young and reckless Assassin, use your skills to help those trampled by the march of progress. From freeing exploited children used as slave labour in factories, to stealing precious assets from enemy boats, you will stop at nothing to bring justice back to London’s streets. To reclaim London for the people, you will need an army. As a gang leader, strengthen your stronghold and rally rival gang members to your cause, in order to take back the capital from the Templars’ hold.",
+      "specification": "CPU: Intel Core i7-3770 @ 3.5 GHz or AMD FX-8350 @ 4.0 GHz \nCPU SPEED: Info\nRAM: 8 GB\n VIDEO CARD: NVIDIA GeForce GTX 760 (4GB) or the newer GTX 970 (4GB) or AMD Radeon R9 280X (3GB) or better \nDEDICATED VIDEO RAM: 4 GB (AMD 3 GB) \nPIXEL SHADER: 5.0 \nVERTEX SHADER: 5.0 \nOS: Windows 7 SP1, Windows 8.1, Windows 10(64bit versions) \nFREE DISK SPACE: 50 GB \nSOUND CARD: Yes",
+      "creatorFirstName": "Scott",
+      "creatorLastName": "Phillips",
+      "publishDate": "2015-10-19T10:58:01.113Z",
+      "platforms": [1, 2],
+      "createdAt": null,
+      "deletedAt": null,
+      "modifiedAt": null
+    },
+    {
+      "id": 5,
+      "name": "Forza Horizon 5",
+      "image": "assets/images/games/forza-horizon-5.jpg",
+      "imageWallpaper": "assets/images/games/forza-horizon-5-wallpaper.jpg",
+      "videoLink": "https://www.youtube.com/watch?v=FYH9n37B7Yw&ab_channel=Xbox",
+      "price": 6200,
+      "description": "Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars. Lead breathtaking expeditions across the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars. Immerse yourself in a deep campaign with hundreds of challenges that reward you for engaging in the activities you love. Meet new characters and choose the outcomes of their Horizon Story missions.",
+      "specification": "CPU: Intel i5-8400 or AMD Ryzen 5 1500X\nRAM: 16 GB \nVIDEO CARD: NVidia GTX 1070 OR AMD RX 590 \nDEDICATED VIDEO RAM: 8192 MB \nPIXEL SHADER: 5.1 \nVERTEX SHADER: 5.1 \nOS: Windows 10 version 15063.0 or higher \nFREE DISK SPACE: 110 GB",
+      "creatorFirstName": "Andy",
+      "creatorLastName": "Ward",
+      "publishDate": "2021-10-09T10:58:01.113Z",
+      "platforms": [1, 3],
+      "createdAt": null,
+      "deletedAt": null,
+      "modifiedAt": null
+    },
+    {
+      "id": 6,
+      "name": "Red Dead Redemption 2",
+      "image": "assets/images/games/red-dead-redemption-2.jpg",
+      "imageWallpaper": "assets/images/games/red-dead-redemption-2-wallpaper.jpg",
+      "videoLink": "https://www.youtube.com/watch?v=eaW0tYpxyp0&ab_channel=RockstarGames",
+      "price": 3700,
+      "description": "America, 1899. Arthur Morgan and the Van der Linde gang are outlaws on the run. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.",
+      "specification": "CPU: Intel Core i7-4770K / AMD Ryzen 5 1500X \nCPU SPEED: Info \nRAM: 12 GB \nVIDEO CARD: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB \nDEDICATED VIDEO RAM: 3072 MB \nPIXEL SHADER: 5.1\nVERTEX SHADER: 5.1 \nOS: Windows 10 \nFREE DISK SPACE: 150 GB",
+      "creatorFirstName": "Christian",
+      "creatorLastName": "Cantamessa",
+      "publishDate": "2019-12-10T10:58:01.113Z",
+      "platforms": [1, 3],
+      "createdAt": null,
+      "deletedAt": null,
+      "modifiedAt": null
+    },
+    {
+      "id": 7,
+      "name": "Counter-Strike: Global Offensive",
+      "image": "assets/images/games/counter-strike-global-offensive.jpg",
+      "imageWallpaper": "assets/images/games/counter-strike-global-offensive-wallpaper.jpg",
+      "videoLink": "https://www.youtube.com/watch?v=edYCtaNueQY&ab_channel=Valve",
+      "price": 1700,
+      "description": "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. Counter-Strike took the gaming industry by surprise when the unlikely MOD became the most played online PC action game in the world almost immediately after its release in August 1999, said Doug Lombardi at Valve. For the past 12 years, it has continued to be one of the most-played games in the world, headline competitive gaming tournaments and selling over 25 million units worldwide across the franchise. CS: GO promises to expand on CS' award-winning gameplay and deliver it to gamers on the PC as well as the next gen consoles and the Mac.",
+      "specification": "CPU: Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better\nCPU SPEED: Info\nRAM: 2 GB\nVIDEO CARD: Video card must be 256 MB or more and should be a DirectX 9-compatible with support for Pixel Shader 3.0\nDEDICATED VIDEO RAM: 256 MB\nPIXEL SHADER: 3.0\nOS: Windows® 7/Vista/XP \nFREE DISK SPACE: 15 GB",
+      "creatorFirstName": "Jess",
+      "creatorLastName": "Cliffe",
+      "publishDate": "2012-8-21T10:58:01.113Z",
+      "platforms": [1],
+      "createdAt": null,
+      "deletedAt": null,
+      "modifiedAt": null
+    },
+    {
+      "id": 8,
+      "name": "Watch Dogs®: Legion",
+      "image": "assets/images/games/watch-dogs-legion.jpg",
+      "imageWallpaper": "assets/images/games/watch-dogs-legion-wallpaper.jpg",
+      "videoLink": "https://www.youtube.com/watch?v=srXrGKGAU20&ab_channel=IGN",
+      "price": 3670,
+      "description": "Build a resistance made from anyone in the world to take back a near-future London that is facing its downfall. Recipient of over 65 E3 awards and nominations. Recruit and play as anyone from London. Everyone you see has a unique backstory, personality, and skill set for unique situations. Hack armed drones, deploy spider-bots, and take down enemies using an Augmented Reality Cloak. Explore a massive urban open world featuring London’s many iconic landmarks and fun side activities. Team up with your friends as you complete co-op missions and unique game modes. Upgrade to the Gold Edition or Ultimate Edition for access to the season pass and more!",
+      "specification": "CPU: Intel Core i7-7700 / Ryzen 5 2600\nRAM: 16 GB\nVIDEO CARD: 8 GB NVIDIA GeForce RTX 2060S or AMD Radeon RX 5700\nDEDICATED VIDEO RAM: 8192 MB\nPIXEL SHADER: 5.1\nVERTEX SHADER: 5.1\nOS: Windows 10 (x64)\nFREE DISK SPACE: 45 GB\nSOUND CARD: Yes",
+      "creatorFirstName": "Clint",
+      "creatorLastName": "Hocking",
+      "publishDate": "2023-1-26T10:58:01.113Z",
+      "platforms": [1, 2],
+      "createdAt": null,
+      "deletedAt": null,
+      "modifiedAt": null
+    }
+  ],
+  "platforms": [
+    {
+      "id": 1,
+      "name": "Pc",
+      "image": "assets/images/icons/pc-logo.png"
+    },
+    {
+      "id": 2,
+      "name": "Playstation",
+      "image": "assets/images/icons/playstation-logo.png"
+    },
+    {
+      "id": 3,
+      "name": "Xbox",
+      "image": "assets/images/icons/xbox-logo.png"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Mihailo",
+      "lastName": "Protic",
+      "email": "mihailo@gmail.com",
+      "password": "admin",
+      "role": "admin",
+      "currentCreation": "2023-05-02T10:57:08.430Z"
+    },
+    {
+      "id": 2,
+      "firstName": "Nikola",
+      "lastName": "Nikolic",
+      "email": "nikola@gmail.com",
+      "password": "123",
+      "role": "user",
+      "currentCreation": "2023-05-02T10:58:01.113Z"
+    }
+  ],
+  "links": [
+    {
+      "id": 1,
+      "name": "hotels",
+      "path": "hotels"
+    },
+    {
+      "id": 2,
+      "name": "reservations",
+      "path": "reservations/table"
+    }
+  ]
+}
