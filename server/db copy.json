@@ -177,13 +177,18 @@
   "links": [
     {
       "id": 1,
-      "name": "hotels",
-      "path": "hotels"
+      "name": "Home",
+      "path": "games"
     },
     {
       "id": 2,
-      "name": "reservations",
-      "path": "reservations/table"
+      "name": "Admin",
+      "path": "admin"
+    },
+    {
+      "id": 3,
+      "name": "Login",
+      "path": "login"
     }
   ]
 }
