@@ -3,15 +3,21 @@
   <div class="navigation">
     <div class="navigation-links" *ngFor="let link of links">
       <button
-        *ngIf="link.rules"
+        *ngIf="link.rules && link.name !== 'Logout'"
         [routerLinkActive]="['active']"
         [routerLink]="[link.path]"
       >
         <span>{{ link.name }}</span>
       </button>
+
+      <button
+        *ngIf="link.name === 'Logout' && link.rules"
+        class="right"
+        (click)="logoutUser()"
+        matTooltip="Logout "
+      >
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
     </div>
-    <button class="right" (click)="logoutUser()" matTooltip="Logout ">
-      <mat-icon>exit_to_app</mat-icon>
-    </button>
   </div>
 </div>

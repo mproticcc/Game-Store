@@ -192,6 +192,12 @@
       "name": "Login",
       "path": "login",
       "rules": true
+    },
+    {
+      "id": 4,
+      "name": "Logout",
+      "path": "",
+      "rules": false
     }
   ]
 }
