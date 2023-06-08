@@ -25,6 +25,13 @@
         <p>Publish date: {{ game.publishDate | date : "EEEE M.Y h:mm" }}</p>
         <br />
 
+        <p>Available platforms</p>
+        <select>
+          <ng-container *ngFor="let platform of platforms">
+            <option>{{ platform.name | uppercase }}</option>
+          </ng-container>
+        </select>
+
         <button [routerLink]="['']" class="buttonCloseOver">Close</button>
       </div>
     </div>
