@@ -20,6 +20,13 @@ const routes: Routes = [
             (module) => module.GamesModule
           ),
       },
+      {
+        path: 'admin',
+        loadChildren: () =>
+          import('./features/admin/admin.module').then(
+            (module) => module.AdminModule
+          ),
+      },
     ],
   },
   {

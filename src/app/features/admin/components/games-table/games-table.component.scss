@@ -1,0 +1,85 @@
+@import "../../../../../assets/styles/variables";
+table,
+tr,
+td {
+  padding: 10px !important;
+  background-color: $table-color;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  color: $bg-color;
+  text-align: left;
+
+  a {
+    color: $bg-color;
+
+    &:hover {
+      color: $p-color;
+    }
+  }
+}
+b {
+  color: $bg-color;
+}
+table {
+  border-radius: 10px;
+}
+
+th.mat-header-cell {
+  padding: 10px;
+}
+
+.wrapper-pagination {
+  background-color: $link;
+  .mat-select-value-text,
+  .mat-select-arrow,
+  .mat-select-min-line {
+    color: $link !important;
+  }
+}
+
+.mat-paginator-page-size-select {
+  background: transparent;
+  color: $link;
+}
+
+.th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  font-size: 30px;
+}
+
+button {
+  border: none;
+  text-decoration: underline;
+  background-color: $link-hover;
+  color: $link;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $button-text-hover;
+    color: $button-hover;
+  }
+}
+
+.ellipsis {
+  position: relative;
+  width: 90%;
+
+  &:before {
+    content: " ";
+    visibility: hidden;
+  }
+
+  p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

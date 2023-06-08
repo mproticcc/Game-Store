@@ -17,6 +17,9 @@ export class GameService {
   getGameById(id: number): Observable<Game> {
     return this.http.get<Game>(`${environment.baseApiURL}games/${id}`);
   }
+  delete(game: Game): Observable<Object> {
+    return this.http.delete(`${environment.baseApiURL}games/${game.id}`);
+  }
 
   getGamesByName(name: string): Observable<Game[]> {
     return this.http
