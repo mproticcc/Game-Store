@@ -178,17 +178,20 @@
     {
       "id": 1,
       "name": "Home",
-      "path": "games"
+      "path": "games",
+      "rules": true
     },
     {
       "id": 2,
       "name": "Admin",
-      "path": "admin"
+      "path": "admin",
+      "rules": false
     },
     {
       "id": 3,
       "name": "Login",
-      "path": "login"
+      "path": "login",
+      "rules": true
     }
   ]
 }

@@ -10,6 +10,7 @@ import { Link } from 'src/app/core/models/link-model';
 })
 export class HeaderComponent implements OnInit {
   links?: Link[];
+
   constructor(private navService: NavigationService) {}
 
   ngOnInit(): void {

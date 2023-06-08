@@ -6,12 +6,19 @@ import { GameOverviewComponent } from './components/game-overview/game-overview.
 import { GamesComponent } from './components/games/games.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from 'src/app/shared/modules/material.module';
 
 const COMPONENTS = [GameCardComponent, GameOverviewComponent, GamesComponent];
 
 @NgModule({
   declarations: [...COMPONENTS],
-  imports: [CommonModule, GamesRoutingModule, RouterModule, SharedModule],
+  imports: [
+    CommonModule,
+    GamesRoutingModule,
+    RouterModule,
+    SharedModule,
+    MaterialModule,
+  ],
   exports: [...COMPONENTS],
 })
 export class GamesModule {}

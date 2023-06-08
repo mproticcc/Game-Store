@@ -26,11 +26,15 @@
         <br />
 
         <p>Available platforms</p>
-        <select>
+
+        <div class="platforms">
           <ng-container *ngFor="let platform of platforms">
-            <option>{{ platform.name | uppercase }}</option>
+            <img
+              [src]="platform.image"
+              matTooltip="{{ platform.name | uppercase }}"
+            />
           </ng-container>
-        </select>
+        </div>
 
         <button [routerLink]="['']" class="buttonCloseOver">Close</button>
       </div>
