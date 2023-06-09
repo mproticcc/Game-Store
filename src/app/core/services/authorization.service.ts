@@ -1,3 +1,4 @@
+import { NotificationService } from './../../shared/services/notification.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -5,12 +6,18 @@ import { RegisterUser } from '../models/register-user.model';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 import { Role } from '../models/role.model';
+import { Router } from '@angular/router';
+import { NavigationService } from './navigation.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthorizationService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private route: Router,
+    private notification: NotificationService
+  ) {}
 
   login(user: RegisterUser): Observable<RegisterUser[]> {
     return this.http.get<RegisterUser[]>(
@@ -35,6 +42,19 @@ export class AuthorizationService {
         lastName: user[0].lastName,
         email: user[0].email,
       })
+    );
+  }
+
+  logOutUser(): void {
+    sessionStorage.removeItem('User');
+    sessionStorage.removeItem('Role');
+    this.route.navigateByUrl('');
+    this.notification.snackbarNotification(
+      'Logout Successfully!',
+      'Close',
+      'center',
+      'top',
+      2000
     );
   }
 }

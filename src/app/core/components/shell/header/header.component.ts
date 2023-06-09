@@ -1,3 +1,4 @@
+import { AuthorizationService } from 'src/app/core/services/authorization.service';
 import { take } from 'rxjs';
 import { NavigationService } from './../../../services/navigation.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,13 +12,18 @@ import { Link } from 'src/app/core/models/link-model';
 export class HeaderComponent implements OnInit {
   links?: Link[];
 
-  constructor(private navService: NavigationService) {}
+  constructor(
+    private navService: NavigationService,
+    private authService: AuthorizationService
+  ) {}
 
   ngOnInit(): void {
     this.getAllLink();
   }
 
-  logoutUser(): void {}
+  logoutUser(): void {
+    this.authService.logOutUser();
+  }
 
   private getAllLink(): void {
     this.navService
