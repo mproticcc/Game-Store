@@ -162,7 +162,7 @@
       "email": "mihailo@gmail.com",
       "password": "admin",
       "role": "admin",
-      "currentCreation": "2023-05-02T10:57:08.430Z"
+      "createdAt": "2023-05-02T10:57:08.430Z"
     },
     {
       "id": 2,
@@ -171,7 +171,7 @@
       "email": "nikola@gmail.com",
       "password": "123",
       "role": "user",
-      "currentCreation": "2023-05-02T10:58:01.113Z"
+      "createdAt": "2023-05-02T10:58:01.113Z"
     }
   ],
   "links": [

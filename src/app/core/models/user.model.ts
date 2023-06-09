@@ -6,5 +6,5 @@ export interface User extends RegisterUser {
   firstName: string;
   lastName: string;
   role: Role;
-  currentCreation: string;
+  createdAt: string;
 }

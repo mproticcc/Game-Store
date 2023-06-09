@@ -9,5 +9,26 @@ body {
   border-bottom: 4px solid #ff8000 !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.snackbar-style {
+  background-color: $table-color;
+  color: $header-color;
+
+  button {
+    color: $fire-gradient;
+    background-color: $bg-color;
+
+    &:hover {
+      background-color: $fire-gradient-hv;
+      color: $header-color;
+    }
+  }
+}

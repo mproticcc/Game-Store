@@ -6,6 +6,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegistrationComponent } from './components/auth/registration/registration.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../shared/modules/material.module';
+import { ShellLayoutComponent } from './components/shell/shell-layout/shell-layout.component';
 
 const COMPONENTS = [
   FooterComponent,
@@ -15,7 +16,7 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, ShellLayoutComponent],
   imports: [CommonModule, RouterModule, MaterialModule],
   exports: [...COMPONENTS],
 })
