@@ -1,6 +1,6 @@
 import { SearchService } from './../../../../shared/services/search.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { take, Subject, takeUntil, interval } from 'rxjs';
+import { take, Subject, takeUntil, debounceTime } from 'rxjs';
 import { Game } from 'src/app/features/models/game.model';
 import { GameService } from 'src/app/features/services/game.service';
 
@@ -41,12 +41,10 @@ export class GamesComponent implements OnInit, OnDestroy {
   }
   private getSearchValue(): void {
     this.searchService.searchedValue$
-      .pipe(takeUntil(this.subscription$))
+      .pipe(takeUntil(this.subscription$), debounceTime(2500))
       .subscribe((value) => {
         this.searchedValue = value;
-        interval(2500)
-          .pipe(take(1))
-          .subscribe(() => this.getGamesByName());
+        this.getGamesByName();
       });
   }
 
