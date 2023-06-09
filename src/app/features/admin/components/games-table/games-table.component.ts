@@ -1,3 +1,4 @@
+import { NotificationService } from './../../../../shared/services/notification.service';
 import { GameService } from './../../../services/game.service';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
@@ -24,7 +25,10 @@ export class GamesTableComponent implements OnInit {
 
   isAdmin: boolean = false;
 
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    private notification: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.getAll();
@@ -34,7 +38,17 @@ export class GamesTableComponent implements OnInit {
     this.gameService
       .delete(game)
       .pipe(take(1))
-      .subscribe(() => this.getAll());
+      .subscribe(() => {
+        this.notification.snackbarNotification(
+          'Successfully deleted',
+          'Ok',
+          'center',
+          'top',
+          2500
+        );
+
+        this.getAll();
+      });
   }
 
   onEdit(game: Game): void {}

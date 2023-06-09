@@ -23,12 +23,12 @@ body {
   color: $header-color;
 
   button {
-    color: $fire-gradient;
-    background-color: $bg-color;
+    color: $link;
+    background-color: $header-color;
 
     &:hover {
       background-color: $fire-gradient-hv;
-      color: $header-color;
+      color: $table-color;
     }
   }
 }

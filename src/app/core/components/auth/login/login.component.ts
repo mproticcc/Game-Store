@@ -50,10 +50,10 @@ export class LoginComponent implements OnInit {
             'top',
             4000
           );
-          // this.route.navigateByUrl('');
+          this.route.navigateByUrl('/admin');
         } else {
           this.notification.snackbarNotification(
-            'Wrong data',
+            'Your email or password are incorrect.',
             'Close',
             'center',
             'top',
