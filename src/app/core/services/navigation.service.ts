@@ -13,4 +13,10 @@ export class NavigationService {
   getAll(): Observable<Link[]> {
     return this.http.get<Link[]>(`${environment.baseApiURL}links`);
   }
+
+  setNavigationRules(linkId: number, rule: boolean): Observable<Object> {
+    return this.http.patch(`${environment.baseApiURL}links/${linkId}`, {
+      rules: rule,
+    });
+  }
 }

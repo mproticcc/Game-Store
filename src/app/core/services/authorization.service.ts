@@ -1,5 +1,5 @@
 import { NotificationService } from './../../shared/services/notification.service';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterUser } from '../models/register-user.model';
@@ -16,7 +16,8 @@ export class AuthorizationService {
   constructor(
     private http: HttpClient,
     private route: Router,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private navigationService: NavigationService
   ) {}
 
   login(user: RegisterUser): Observable<RegisterUser[]> {
@@ -34,6 +35,7 @@ export class AuthorizationService {
   }
 
   setUserData(user: User[]): void {
+    this.setNavigationLinkIn();
     sessionStorage.setItem('Role', user[0].role);
     sessionStorage.setItem(
       'User',
@@ -46,6 +48,8 @@ export class AuthorizationService {
   }
 
   logOutUser(): void {
+    this.setNavigationLinkOut();
+
     sessionStorage.removeItem('User');
     sessionStorage.removeItem('Role');
     this.route.navigateByUrl('');
@@ -56,5 +60,31 @@ export class AuthorizationService {
       'top',
       2000
     );
+  }
+
+  private setNavigationLinkIn(): void {
+    this.navigationService
+      .setNavigationRules(3, false)
+      .pipe(take(1))
+      .subscribe();
+    this.navigationService
+      .setNavigationRules(4, true)
+      .pipe(take(1))
+      .subscribe();
+  }
+
+  private setNavigationLinkOut(): void {
+    this.navigationService
+      .setNavigationRules(3, true)
+      .pipe(take(1))
+      .subscribe();
+    this.navigationService
+      .setNavigationRules(4, false)
+      .pipe(take(1))
+      .subscribe();
+    this.navigationService
+      .setNavigationRules(2, false)
+      .pipe(take(1))
+      .subscribe();
   }
 }
