@@ -5,8 +5,13 @@ import { AdminComponent } from './components/admin/admin.component';
 import { GamesTableComponent } from './components/games-table/games-table.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MaterialModule } from 'src/app/shared/modules/material.module';
+import { GameAdministrationModalComponent } from './components/game-administration-modal/game-administration-modal.component';
 
-const COMPONENTS = [AdminComponent, GamesTableComponent];
+const COMPONENTS = [
+  AdminComponent,
+  GamesTableComponent,
+  GameAdministrationModalComponent,
+];
 
 @NgModule({
   declarations: [...COMPONENTS],

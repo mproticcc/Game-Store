@@ -160,9 +160,9 @@
       "firstName": "Mihailo",
       "lastName": "Protic",
       "email": "mihailo@gmail.com",
-      "password": "admin",
+      "password": "123",
       "role": "admin",
-      "currentCreation": "2023-05-02T10:57:08.430Z"
+      "createdAt": "2023-05-02T10:57:08.430Z"
     },
     {
       "id": 2,
@@ -171,7 +171,25 @@
       "email": "nikola@gmail.com",
       "password": "123",
       "role": "user",
-      "currentCreation": "2023-05-02T10:58:01.113Z"
+      "createdAt": "2023-05-02T10:58:01.113Z"
+    },
+    {
+      "id": 3,
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "email": "admin@orion.com",
+      "password": "admin",
+      "role": "admin",
+      "createdAt": "2023-05-02T10:58:01.113Z"
+    },
+    {
+      "id": 4,
+      "firstName": "Moderator",
+      "lastName": "Moderator",
+      "email": "moderator@orion.com",
+      "password": "moderator",
+      "role": "moderator",
+      "createdAt": "2023-05-02T10:58:01.113Z"
     }
   ],
   "links": [

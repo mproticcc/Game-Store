@@ -1,0 +1,156 @@
+<div class="dialog">
+  <h2 mat-dialog-title>Create Game</h2>
+  <mat-dialog-content class="mat-typography">
+    <form class="content" [formGroup]="reservationForm">
+      <div>
+        <br />
+        <div class="group">
+          <input
+            type="text"
+            placeholder="Game Name"
+            name="name"
+            formControlName="name"
+            [ngClass]="{'invalid' : reservationForm.controls.name.errors?.['pattern']}"
+          />
+          <p *ngIf="reservationForm.controls.name.errors?.['pattern']">
+            Game name is required and first letter must bi capital and length
+            must be less than 50
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="text"
+            placeholder="Youtube Link"
+            name="videoLink"
+            formControlName="videoLink"
+            [ngClass]="{'invalid' : reservationForm.controls.videoLink.errors?.['pattern']}"
+          />
+          <p *ngIf="reservationForm.controls.videoLink.errors?.['pattern']">
+            Youtube Link must be in the correct format
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="text"
+            placeholder="Game Description"
+            name="description"
+            formControlName="description"
+            [ngClass]="{'invalid' : reservationForm.controls.description.errors?.['pattern']}"
+          />
+          <p *ngIf="reservationForm.controls.description.errors?.['pattern']">
+            Description is required
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="number"
+            placeholder="Game Price"
+            name="price"
+            formControlName="price"
+            [ngClass]="{'invalid' : reservationForm.controls.price.errors?.['pattern']}"
+          />
+          <p *ngIf="reservationForm.controls.price.errors?.['pattern']">
+            Price is required
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="text"
+            placeholder="Creator First Name"
+            name="creatorFirstName"
+            formControlName="creatorFirstName"
+            [ngClass]="{'invalid' : reservationForm.controls.creatorFirstName.errors?.['pattern']}"
+          />
+          <p
+            *ngIf="reservationForm.controls.creatorFirstName.errors?.['pattern']"
+          >
+            Creator First Name is required and first letter must bi capital
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="text"
+            placeholder="Creator Last Name"
+            name="creatorLastName"
+            formControlName="creatorLastName"
+            [ngClass]="{'invalid' : reservationForm.controls.creatorLastName.errors?.['pattern']}"
+          />
+          <p
+            *ngIf="reservationForm.controls.creatorLastName.errors?.['pattern']"
+          >
+            Creator Last Name is required and first letter must bi capital
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="text"
+            placeholder="Game Image url"
+            name="image"
+            formControlName="image"
+            [ngClass]="{'invalid' : reservationForm.controls.image.errors?.['pattern']}"
+          />
+          <p *ngIf="reservationForm.controls.image.errors?.['pattern']">
+            Game image is required
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="text"
+            placeholder="Game image wallpaper ulr"
+            name="imageWallpaper"
+            formControlName="imageWallpaper"
+            [ngClass]="{'invalid' : reservationForm.controls.imageWallpaper.errors?.['pattern']}"
+          />
+          <p *ngIf="reservationForm.controls.name.errors?.['pattern']">
+            Game image wallpaper is required
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="date"
+            placeholder="Game publish date"
+            name="publishDate"
+            formControlName="publishDate"
+            [ngClass]="{'invalid' : reservationForm.controls.publishDate.errors?.['pattern']}"
+          />
+          <p *ngIf="reservationForm.controls.publishDate.errors?.['pattern']">
+            Game publish date is required
+          </p>
+        </div>
+        <br />
+        <div class="group">
+          <input
+            type="text"
+            placeholder="Game specification"
+            name="specification"
+            formControlName="specification"
+            [ngClass]="{'invalid' : reservationForm.controls.specification.errors?.['pattern']}"
+          />
+          <p *ngIf="reservationForm.controls.specification.errors?.['pattern']">
+            Game specification is required
+          </p>
+        </div>
+        <br />
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="left">
+    <button
+      mat-button
+      mat-dialog-close
+      [disabled]="reservationForm.invalid"
+      (click)="createNewGame()"
+    >
+      Save Registration
+    </button>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>
