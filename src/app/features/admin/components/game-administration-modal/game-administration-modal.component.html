@@ -1,5 +1,5 @@
 <div class="dialog">
-  <h2 mat-dialog-title>Create Game</h2>
+  <h2 mat-dialog-title>New Game</h2>
   <mat-dialog-content class="mat-typography">
     <form class="content" [formGroup]="reservationForm">
       <div>
@@ -32,13 +32,14 @@
         </div>
         <br />
         <div class="group">
-          <input
+          <textarea
             type="text"
             placeholder="Game Description"
             name="description"
             formControlName="description"
             [ngClass]="{'invalid' : reservationForm.controls.description.errors?.['pattern']}"
-          />
+          >
+          </textarea>
           <p *ngIf="reservationForm.controls.description.errors?.['pattern']">
             Description is required
           </p>

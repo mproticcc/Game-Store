@@ -11,6 +11,11 @@ import { GameService } from 'src/app/features/services/game.service';
   styleUrls: ['./game-administration-modal.component.scss'],
 })
 export class GameAdministrationModalComponent {
+  private creatorFirstName: string = JSON.parse(sessionStorage.getItem('User'))
+    .firstName;
+  private creatorLastName: string = JSON.parse(sessionStorage.getItem('User'))
+    .lastName;
+
   reservationForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -24,11 +29,11 @@ export class GameAdministrationModalComponent {
     ]),
     description: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
-    creatorFirstName: new FormControl('', [
+    creatorFirstName: new FormControl(this.creatorFirstName, [
       Validators.required,
       Validators.pattern(/^[A-Z][a-zA-Z]+$/),
     ]),
-    creatorLastName: new FormControl('', [
+    creatorLastName: new FormControl(this.creatorLastName, [
       Validators.required,
       Validators.pattern(/^[A-Z][a-zA-Z]+$/),
     ]),
