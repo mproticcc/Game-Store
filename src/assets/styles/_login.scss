@@ -1,0 +1,104 @@
+@import "variables";
+
+.content {
+  display: flex;
+  flex-direction: row !important;
+  color: #fff;
+  height: 100%;
+  width: 50%;
+
+  .img-content {
+    background-image: url("../images/games/login-wallpaper.jpg");
+    background-size: cover;
+    background-position: top;
+    width: 50%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    justify-content: center;
+
+    h1 {
+      color: $h-color;
+      font-size: 60px;
+    }
+
+    p {
+      color: $h-color;
+    }
+
+    .register {
+      text-decoration: none;
+      background-color: transparent;
+      color: $h-color;
+
+      &:hover {
+        color: $link;
+      }
+    }
+
+    .link-sign-up {
+      text-decoration: none;
+    }
+
+    input {
+      width: 100%;
+      height: 50px;
+      background: $fire-gradient;
+      color: $header-color;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      margin: 2px;
+
+      &:hover {
+        background: $fire-gradient-hv;
+      }
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      height: 50px;
+      background: $fire-gradient;
+      color: $h-color;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background: $fire-gradient-hv;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: $button-hover;
+        color: $header-color;
+      }
+    }
+  }
+}
+
+.log-in-class {
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  width: 25%;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}

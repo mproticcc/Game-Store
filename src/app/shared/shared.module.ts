@@ -8,8 +8,14 @@ import { PriceDirective } from './directives/price.directive';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MaterialModule } from './modules/material.module';
+import { CloseButtonComponent } from './components/close-button/close-button.component';
 
-const COMPONENTS = [SearchComponent, NotFoundComponent, LoaderComponent];
+const COMPONENTS = [
+  SearchComponent,
+  NotFoundComponent,
+  LoaderComponent,
+  CloseButtonComponent,
+];
 const PIPES = [DescriptionLimitPipe, CreatorPipe];
 const DIRECTIVES = [PriceDirective];
 

@@ -7,17 +7,19 @@ import { RegistrationComponent } from './components/auth/registration/registrati
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../shared/modules/material.module';
 import { ShellLayoutComponent } from './components/shell/shell-layout/shell-layout.component';
+import { SharedModule } from '../shared/shared.module';
 
 const COMPONENTS = [
   FooterComponent,
   HeaderComponent,
   LoginComponent,
   RegistrationComponent,
+  ShellLayoutComponent,
 ];
 
 @NgModule({
-  declarations: [...COMPONENTS, ShellLayoutComponent],
-  imports: [CommonModule, RouterModule, MaterialModule],
+  declarations: [...COMPONENTS],
+  imports: [CommonModule, RouterModule, MaterialModule, SharedModule],
   exports: [...COMPONENTS],
 })
 export class CoreModule {}
