@@ -5,6 +5,7 @@ import { take } from 'rxjs';
 import { Game } from 'src/app/features/models/game.model';
 import { GameService } from 'src/app/features/services/game.service';
 import { PlatformService } from 'src/app/features/services/platform.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-game-overview',
@@ -12,6 +13,8 @@ import { PlatformService } from 'src/app/features/services/platform.service';
   styleUrls: ['./game-overview.component.scss'],
 })
 export class GameOverviewComponent implements OnInit {
+  loading$ = this.loader.loading$;
+
   game?: Game;
 
   platforms?: Platform[];
@@ -19,7 +22,8 @@ export class GameOverviewComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private gameService: GameService,
-    private platformService: PlatformService
+    private platformService: PlatformService,
+    private loader: LoadingService
   ) {}
 
   ngOnInit(): void {

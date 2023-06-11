@@ -1,8 +1,16 @@
 <app-search></app-search>
-<div class="order" *ngIf="games?.length; else elseBlock">
-  <app-game-card *ngFor="let game of games" [game]="game"></app-game-card>
-</div>
+<app-loader *ngIf="loading$ | async"></app-loader>
+<ng-container *ngIf="!(loading$ | async)">
+  <div
+    class="order"
+    *ngIf="games?.length && (loading$ | async) == false; else elseBlock"
+  >
+    <app-game-card *ngFor="let game of games" [game]="game"></app-game-card>
+  </div>
 
-<ng-template #elseBlock>
-  <app-not-found text="ERROR, THERE ARE NO GAMES WITH THAT NAME"></app-not-found
-></ng-template>
+  <ng-template #elseBlock>
+    <app-not-found
+      text="ERROR, THERE ARE NO GAMES WITH THAT NAME"
+    ></app-not-found
+  ></ng-template>
+</ng-container>

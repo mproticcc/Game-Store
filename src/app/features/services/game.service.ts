@@ -3,12 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Game } from '../models/game.model';
 import { environment } from 'src/environments/environment';
+import { LoadingService } from 'src/app/shared/services/loading.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GameService {
-  constructor(private http: HttpClient) {}
+  loading$ = this.loader.loading$;
+
+  constructor(private http: HttpClient, private loader: LoadingService) {}
 
   getAll(): Observable<Game[]> {
     return this.http.get<Game[]>(`${environment.baseApiURL}games`);

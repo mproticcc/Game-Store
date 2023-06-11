@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { take, Subject, takeUntil, debounceTime } from 'rxjs';
 import { Game } from 'src/app/features/models/game.model';
 import { GameService } from 'src/app/features/services/game.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-games',
@@ -10,6 +11,8 @@ import { GameService } from 'src/app/features/services/game.service';
   styleUrls: ['./games.component.scss'],
 })
 export class GamesComponent implements OnInit, OnDestroy {
+  loading$ = this.loader.loading$;
+
   games?: Game[];
 
   searchedValue: string = '';
@@ -18,7 +21,8 @@ export class GamesComponent implements OnInit, OnDestroy {
 
   constructor(
     private gameService: GameService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private loader: LoadingService
   ) {}
 
   ngOnInit(): void {
