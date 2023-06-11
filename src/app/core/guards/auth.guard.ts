@@ -6,10 +6,7 @@ import { NavigationService } from '../services/navigation.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanLoad {
-  constructor(
-    private route: Router,
-    private navigationService: NavigationService
-  ) {}
+  constructor(private route: Router) {}
 
   canActivate(): boolean {
     return this.isUserLoggedIn();

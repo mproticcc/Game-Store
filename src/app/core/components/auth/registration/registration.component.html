@@ -10,9 +10,11 @@
           placeholder="First Name"
           name="firstName"
           formControlName="firstName"
-          [ngClass]="{'invalid' : registrationForm.controls.firstName.errors?.['pattern']}"
         />
-        <p *ngIf="registrationForm.controls.firstName.errors?.['pattern']">
+        <p
+          class="invalid"
+          *ngIf="registrationForm.controls.firstName.errors?.['pattern']"
+        >
           First name is required and first letter must bi capital
         </p>
       </div>
@@ -23,9 +25,11 @@
           placeholder="Last Name"
           name="lastName"
           formControlName="lastName"
-          [ngClass]="{'invalid' : registrationForm.controls.lastName.errors?.['pattern']}"
         />
-        <p *ngIf="registrationForm.controls.lastName.errors?.['pattern']">
+        <p
+          class="invalid"
+          *ngIf="registrationForm.controls.lastName.errors?.['pattern']"
+        >
           Last name is required and first letter must bi capital
         </p>
       </div>
@@ -36,9 +40,11 @@
           placeholder="Email"
           name="email"
           formControlName="email"
-          [ngClass]="{'invalid' : registrationForm.controls.email.errors?.['email']}"
         />
-        <p *ngIf="registrationForm.controls.email.errors?.['email']">
+        <p
+          class="invalid"
+          *ngIf="registrationForm.controls.email.errors?.['email']"
+        >
           Email should be in right form
         </p>
       </div>
@@ -49,9 +55,11 @@
           placeholder="Password"
           name="password"
           formControlName="password"
-          [ngClass]="{'invalid' : registrationForm.controls.password.errors?.['pattern']}"
         />
-        <p *ngIf="registrationForm.controls.password.errors?.['pattern']">
+        <p
+          class="invalid"
+          *ngIf="registrationForm.controls.password.errors?.['pattern']"
+        >
           Password should not contain space
         </p>
       </div>
@@ -63,9 +71,8 @@
           placeholder="Confirm Password"
           name="confirmPassword"
           formControlName="confirmPassword"
-          [ngClass]="{ invalid: arePasswordsEqual && conPass.value }"
         />
-        <p *ngIf="arePasswordsEqual && conPass.value">
+        <p class="invalid" *ngIf="arePasswordsEqual && conPass.value">
           Passwords are not equal!
         </p>
       </div>

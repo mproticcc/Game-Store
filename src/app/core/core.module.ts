@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../shared/modules/material.module';
 import { ShellLayoutComponent } from './components/shell/shell-layout/shell-layout.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const COMPONENTS = [
   FooterComponent,

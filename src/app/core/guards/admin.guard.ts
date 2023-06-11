@@ -13,6 +13,7 @@ export class AdminGuard implements CanActivate, CanLoad {
     private authorization: AuthorizationService,
     private navigationService: NavigationService
   ) {}
+
   canActivate(): boolean {
     return this.isUserAdmin();
   }

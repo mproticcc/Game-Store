@@ -36,7 +36,6 @@
     }
 
     .register {
-      text-decoration: none;
       background-color: transparent;
       color: $h-color;
 
@@ -101,4 +100,8 @@
 .group {
   display: flex;
   flex-direction: column;
+}
+
+.invalid {
+  color: red !important;
 }

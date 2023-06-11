@@ -10,7 +10,7 @@
         <div class="main-image">
           <img [src]="game.image" [alt]="game.name" />
           <div class="about-game">
-            <h3>ABOUT THIS GAME</h3>
+            <h2>ABOUT THIS GAME</h2>
             <p>
               {{ game.description }}
             </p>
@@ -23,13 +23,14 @@
           <p>
             Creator: <i>{{ game | creator }}</i>
           </p>
-          <p>Price: {{ game.price | currency : " " }} din</p>
+
           <p>
             Video:
             <a [href]="game.videoLink">{{ game.name }} official trailer</a>
           </p>
           <p>Publish date: {{ game.publishDate | date : "EEEE M.Y h:mm" }}</p>
           <br />
+          <h2>Price: {{ game.price | currency : " " }} din</h2>
 
           <p>Available platforms</p>
 
