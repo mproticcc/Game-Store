@@ -14,7 +14,9 @@
 
       <p>Publish date: {{ game.publishDate | date : "EEEE M.Y h:mm" }}</p>
 
-      <p class="description">{{ game.description | descriptionLimit : 45 }}</p>
+      <p class="description">
+        About the game: {{ game.description | descriptionLimit : 45 }}
+      </p>
     </div>
   </div>
 </div>
