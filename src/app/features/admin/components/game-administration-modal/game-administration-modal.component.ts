@@ -1,22 +1,27 @@
 import { NotificationService } from './../../../../shared/services/notification.service';
 import { take } from 'rxjs';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Game } from 'src/app/features/models/game.model';
 import { GameService } from 'src/app/features/services/game.service';
+import { PlatformService } from 'src/app/features/services/platform.service';
+import { Platform } from 'src/app/features/models/platform.model';
 
 @Component({
   selector: 'app-game-administration-modal',
   templateUrl: './game-administration-modal.component.html',
   styleUrls: ['./game-administration-modal.component.scss'],
 })
-export class GameAdministrationModalComponent {
-  private creatorFirstName: string = JSON.parse(sessionStorage.getItem('User'))
-    .firstName;
-  private creatorLastName: string = JSON.parse(sessionStorage.getItem('User'))
-    .lastName;
+export class GameAdministrationModalComponent implements OnInit {
+  platforms?: Platform[];
 
-  reservationForm = new FormGroup({
+  games?: Game[];
+
+  creatorFirstName: string = JSON.parse(sessionStorage.getItem('User'))
+    .firstName;
+  creatorLastName: string = JSON.parse(sessionStorage.getItem('User')).lastName;
+
+  createGameForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
       Validators.pattern(/^[A-Z][a-zA-Z]{0,50}$/),
@@ -41,30 +46,35 @@ export class GameAdministrationModalComponent {
     imageWallpaper: new FormControl('', Validators.required),
     publishDate: new FormControl('', Validators.required),
     specification: new FormControl('', Validators.required),
+    platforms: new FormControl('', Validators.required),
   });
-
-  games?: Game[];
 
   constructor(
     private gameService: GameService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private platformService: PlatformService
   ) {}
+
+  ngOnInit(): void {
+    this.getAllPlatforms();
+  }
 
   createNewGame(): void {
     const date = new Date();
 
     const game: Game = {
       id: Math.round(Math.random() * date.getSeconds() * date.getMinutes()),
-      name: this.reservationForm.value.name,
-      image: this.reservationForm.value.image,
-      imageWallpaper: this.reservationForm.value.imageWallpaper,
-      videoLink: this.reservationForm.value.videoLink,
-      price: +this.reservationForm.value.price,
-      description: this.reservationForm.value.description,
-      creatorFirstName: this.reservationForm.value.creatorFirstName,
-      creatorLastName: this.reservationForm.value.creatorLastName,
-      publishDate: this.reservationForm.value.publishDate,
-      specification: this.reservationForm.value.specification,
+      name: this.createGameForm.value.name,
+      image: this.createGameForm.value.image,
+      imageWallpaper: this.createGameForm.value.imageWallpaper,
+      videoLink: this.createGameForm.value.videoLink,
+      price: +this.createGameForm.value.price,
+      description: this.createGameForm.value.description,
+      creatorFirstName: this.createGameForm.value.creatorFirstName,
+      creatorLastName: this.createGameForm.value.creatorLastName,
+      publishDate: this.createGameForm.value.publishDate,
+      specification: this.createGameForm.value.specification,
+      platforms: [+this.createGameForm.value.platforms],
       createdAt: new Date(),
       deletedAt: null,
       modifiedAt: null,
@@ -82,5 +92,12 @@ export class GameAdministrationModalComponent {
           2000
         );
       });
+  }
+
+  private getAllPlatforms(): void {
+    this.platformService
+      .getAll()
+      .pipe(take(1))
+      .subscribe((platforms) => (this.platforms = platforms));
   }
 }

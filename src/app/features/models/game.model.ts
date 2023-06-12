@@ -10,7 +10,7 @@ export interface Game {
   creatorFirstName: string;
   creatorLastName: string;
   publishDate: string;
-  platforms?: number[];
+  platforms: number[];
   createdAt: Date;
   deletedAt: Date;
   modifiedAt: Date;
