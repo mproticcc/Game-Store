@@ -54,7 +54,7 @@
   padding-top: 0px;
   margin-left: 10%;
   width: 50%;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   background-color: transparent;
   text-align: center;
   border-radius: 10px;
@@ -62,7 +62,7 @@
 
   p,
   h2 {
-    color: $p2-color;
+    color: $h-color;
   }
 
   a {
