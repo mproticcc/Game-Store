@@ -24,6 +24,19 @@
   width: 70%;
 }
 
+@media screen and (max-width: 1000px) {
+  .main {
+    flex-wrap: wrap;
+
+    .main-image {
+      img {
+        width: 470px;
+        height: 280px;
+      }
+    }
+  }
+}
+
 .main-image {
   position: relative;
   display: block;
