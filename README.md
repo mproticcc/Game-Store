@@ -12,6 +12,25 @@ Run `start-all` in terminal to start whole application
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Things that were added that were not required in the project
+
+1.In game feature
+
+-Game Image: For better game recognition
+
+-imageWallpaper: Because of the design
+
+-specification: So that users can know what specification they need to run the game
+
+-platforms:So that users can know on which platforms the game is available.
+I didn't want to hardcode them, but I wanted the data about the platforms to be fetched from the database
+
+2.not-found component: To notify users that the requested request does not exist
+
+3.loader component: A graphical animation that is displayed while data is coming from the database
+
+4.search component: I added a clear button that is used to delete the entered text, I think it is a better user experience
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
