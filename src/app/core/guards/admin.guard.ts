@@ -24,10 +24,6 @@ export class AdminGuard implements CanActivate, CanLoad {
 
   private isUserAdmin(): boolean {
     if (this.authorization.isAdmin()) {
-      this.navigationService
-        .setNavigationRules(2, true)
-        .pipe(take(1))
-        .subscribe();
       return true;
     }
     this.route.navigateByUrl('');

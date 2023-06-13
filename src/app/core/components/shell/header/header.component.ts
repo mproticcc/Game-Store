@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
 
   logoutUser(): void {
     this.authService.logOutUser();
+    this.getAllLink();
   }
 
   private getAllLink(): void {

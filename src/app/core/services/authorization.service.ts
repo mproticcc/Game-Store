@@ -1,5 +1,5 @@
 import { NotificationService } from './../../shared/services/notification.service';
-import { Observable, take } from 'rxjs';
+import { Observable, forkJoin, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterUser } from '../models/register-user.model';
@@ -63,28 +63,24 @@ export class AuthorizationService {
   }
 
   private setNavigationLinkIn(): void {
-    this.navigationService
-      .setNavigationRules(3, false)
-      .pipe(take(1))
-      .subscribe();
-    this.navigationService
-      .setNavigationRules(4, true)
-      .pipe(take(1))
-      .subscribe();
+    forkJoin({
+      login: this.navigationService.setNavigationRules(3, false).pipe(take(1)),
+      logOut: this.navigationService.setNavigationRules(4, true).pipe(take(1)),
+    }).subscribe(() => {
+      if (this.isAdmin()) {
+        this.navigationService
+          .setNavigationRules(2, true)
+          .pipe(take(1))
+          .subscribe();
+      }
+    });
   }
 
   private setNavigationLinkOut(): void {
-    this.navigationService
-      .setNavigationRules(3, true)
-      .pipe(take(1))
-      .subscribe();
-    this.navigationService
-      .setNavigationRules(4, false)
-      .pipe(take(1))
-      .subscribe();
-    this.navigationService
-      .setNavigationRules(2, false)
-      .pipe(take(1))
-      .subscribe();
+    forkJoin({
+      login: this.navigationService.setNavigationRules(3, true).pipe(take(1)),
+      logOut: this.navigationService.setNavigationRules(4, false).pipe(take(1)),
+      admin: this.navigationService.setNavigationRules(2, false).pipe(take(1)),
+    }).subscribe();
   }
 }
