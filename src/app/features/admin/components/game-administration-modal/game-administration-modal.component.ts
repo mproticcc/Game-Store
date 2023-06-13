@@ -133,6 +133,7 @@ export class GameAdministrationModalComponent implements OnInit {
   }
 
   private setInputFields(): void {
+    const date = this.data.game.publishDate.split('T');
     this.createGameForm.patchValue({
       name: this.data.game.name,
       image: this.data.game.image,
@@ -142,7 +143,7 @@ export class GameAdministrationModalComponent implements OnInit {
       description: this.data.game.description,
       creatorFirstName: this.data.game.creatorFirstName,
       creatorLastName: this.data.game.creatorLastName,
-      publishDate: this.data.game.publishDate,
+      publishDate: date[0],
       specification: this.data.game.specification,
       platforms: this.data.game.platforms.toString(),
     });
