@@ -12,11 +12,7 @@
       "creatorFirstName": "Leslie",
       "creatorLastName": "Benzies",
       "publishDate": "2013-09-17T10:58:01.113Z",
-      "platforms": [
-        1,
-        2,
-        3
-      ],
+      "platforms": [1, 2, 3],
       "createdAt": null,
       "deletedAt": null,
       "modifiedAt": null
@@ -33,10 +29,7 @@
       "creatorFirstName": "Matthias",
       "creatorLastName": "Worch",
       "publishDate": "2016-10-07T10:58:01.113Z",
-      "platforms": [
-        1,
-        2
-      ],
+      "platforms": [1, 2],
       "createdAt": null,
       "deletedAt": null,
       "modifiedAt": null
@@ -53,11 +46,7 @@
       "creatorFirstName": "Ghost",
       "creatorLastName": "Games",
       "publishDate": "2016-03-15T10:58:01.113Z",
-      "platforms": [
-        1,
-        2,
-        3
-      ],
+      "platforms": [1, 2, 3],
       "createdAt": null,
       "deletedAt": null,
       "modifiedAt": null
@@ -74,10 +63,7 @@
       "creatorFirstName": "Scott",
       "creatorLastName": "Phillips",
       "publishDate": "2015-10-19T10:58:01.113Z",
-      "platforms": [
-        1,
-        2
-      ],
+      "platforms": [1, 2],
       "createdAt": null,
       "deletedAt": null,
       "modifiedAt": null
@@ -94,10 +80,7 @@
       "creatorFirstName": "Andy",
       "creatorLastName": "Ward",
       "publishDate": "2021-10-09T10:58:01.113Z",
-      "platforms": [
-        1,
-        3
-      ],
+      "platforms": [1, 3],
       "createdAt": null,
       "deletedAt": null,
       "modifiedAt": null
@@ -114,10 +97,7 @@
       "creatorFirstName": "Christian",
       "creatorLastName": "Cantamessa",
       "publishDate": "2019-12-10T10:58:01.113Z",
-      "platforms": [
-        1,
-        3
-      ],
+      "platforms": [1, 3],
       "createdAt": null,
       "deletedAt": null,
       "modifiedAt": null
@@ -134,9 +114,7 @@
       "creatorFirstName": "Jess",
       "creatorLastName": "Cliffe",
       "publishDate": "2012-08-21T10:58:01.113Z",
-      "platforms": [
-        1
-      ],
+      "platforms": [1],
       "createdAt": null,
       "deletedAt": null,
       "modifiedAt": null
@@ -153,10 +131,7 @@
       "creatorFirstName": "Clint",
       "creatorLastName": "Hocking",
       "publishDate": "2023-01-26T10:58:01.113Z",
-      "platforms": [
-        1,
-        2
-      ],
+      "platforms": [1, 2],
       "createdAt": null,
       "deletedAt": null,
       "modifiedAt": null
