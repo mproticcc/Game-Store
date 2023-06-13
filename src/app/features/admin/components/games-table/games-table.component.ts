@@ -3,6 +3,8 @@ import { GameService } from './../../../services/game.service';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { Game } from 'src/app/features/models/game.model';
+import { GameAdministrationModalComponent } from '../game-administration-modal/game-administration-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-games-table',
@@ -27,7 +29,8 @@ export class GamesTableComponent implements OnInit {
 
   constructor(
     private gameService: GameService,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +54,18 @@ export class GamesTableComponent implements OnInit {
       });
   }
 
-  onEdit(game: Game): void {}
+  onEdit(game: Game): void {
+    this.dialog.open(GameAdministrationModalComponent, {
+      data: {
+        title: 'Edit Game',
+        buttonName: 'Update game',
+        game: game,
+        isEditClicked: true,
+      },
+      position: { top: '40px' },
+      width: '40%',
+    });
+  }
 
   private getAll(): void {
     this.gameService

@@ -1,11 +1,12 @@
 import { NotificationService } from './../../../../shared/services/notification.service';
 import { take } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Game } from 'src/app/features/models/game.model';
 import { GameService } from 'src/app/features/services/game.service';
 import { PlatformService } from 'src/app/features/services/platform.service';
 import { Platform } from 'src/app/features/models/platform.model';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-game-administration-modal',
@@ -17,14 +18,15 @@ export class GameAdministrationModalComponent implements OnInit {
 
   games?: Game[];
 
-  creatorFirstName: string = JSON.parse(sessionStorage.getItem('User'))
+  private creatorFirstName: string = JSON.parse(sessionStorage.getItem('User'))
     .firstName;
-  creatorLastName: string = JSON.parse(sessionStorage.getItem('User')).lastName;
+  private creatorLastName: string = JSON.parse(sessionStorage.getItem('User'))
+    .lastName;
 
   createGameForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^[A-Z][a-zA-Z]{0,50}$/),
+      Validators.pattern(/^[A-Z][\w!@#$%^&-:®*() ]{0,50}$/),
     ]),
     videoLink: new FormControl('', [
       Validators.required,
@@ -34,14 +36,14 @@ export class GameAdministrationModalComponent implements OnInit {
     ]),
     description: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
-    creatorFirstName: new FormControl(this.creatorFirstName, [
-      Validators.required,
-      Validators.pattern(/^[A-Z][a-zA-Z]+$/),
-    ]),
-    creatorLastName: new FormControl(this.creatorLastName, [
-      Validators.required,
-      Validators.pattern(/^[A-Z][a-zA-Z]+$/),
-    ]),
+    creatorFirstName: new FormControl(
+      JSON.parse(sessionStorage.getItem('User')).firstName,
+      [Validators.required, Validators.pattern(/^[A-Z][a-zA-Z]+$/)]
+    ),
+    creatorLastName: new FormControl(
+      JSON.parse(sessionStorage.getItem('User')).lastName,
+      [Validators.required, Validators.pattern(/^[A-Z][a-zA-Z]+$/)]
+    ),
     image: new FormControl('', Validators.required),
     imageWallpaper: new FormControl('', Validators.required),
     publishDate: new FormControl('', Validators.required),
@@ -52,11 +54,21 @@ export class GameAdministrationModalComponent implements OnInit {
   constructor(
     private gameService: GameService,
     private notificationService: NotificationService,
-    private platformService: PlatformService
+    private platformService: PlatformService,
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      title: string;
+      buttonName: string;
+      game: Game;
+      isEditClicked: boolean;
+    }
   ) {}
 
   ngOnInit(): void {
     this.getAllPlatforms();
+    if (this.data.isEditClicked) {
+      this.setInputFields();
+    }
   }
 
   createNewGame(): void {
@@ -94,10 +106,41 @@ export class GameAdministrationModalComponent implements OnInit {
       });
   }
 
+  updateGame(): void {
+    this.gameService
+      .editGame(this.data.game)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.notificationService.snackbarNotification(
+          'Game successful edited',
+          'Close',
+          'center',
+          'top',
+          2000
+        );
+      });
+  }
+
   private getAllPlatforms(): void {
     this.platformService
       .getAll()
       .pipe(take(1))
       .subscribe((platforms) => (this.platforms = platforms));
+  }
+
+  private setInputFields(): void {
+    this.createGameForm.patchValue({
+      name: this.data.game.name,
+      image: this.data.game.image,
+      imageWallpaper: this.data.game.imageWallpaper,
+      videoLink: this.data.game.videoLink,
+      price: this.data.game.price + '',
+      description: this.data.game.description,
+      creatorFirstName: this.data.game.creatorFirstName,
+      creatorLastName: this.data.game.creatorLastName,
+      publishDate: this.data.game.publishDate,
+      specification: this.data.game.specification,
+      platforms: this.data.game.platforms.toString(),
+    });
   }
 }

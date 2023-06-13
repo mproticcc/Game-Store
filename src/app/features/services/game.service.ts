@@ -25,7 +25,7 @@ export class GameService {
     return this.http.delete(`${environment.baseApiURL}games/${game.id}`);
   }
 
-  createNewGame(game): Observable<Game> {
+  createNewGame(game: Game): Observable<Game> {
     return this.http.post<Game>(`${environment.baseApiURL}games`, game);
   }
 
@@ -39,5 +39,22 @@ export class GameService {
           )
         )
       );
+  }
+
+  editGame(game: Game): Observable<Object> {
+    return this.http.patch(`${environment.baseApiURL}games/${game.id}`, {
+      name: game.name,
+      image: game.image,
+      imageWallpaper: game.imageWallpaper,
+      videoLink: game.videoLink,
+      price: game.price,
+      description: game.description,
+      specification: game.specification,
+      creatorFirstName: game.creatorFirstName,
+      creatorLastName: game.creatorLastName,
+      publishDate: game.publishDate,
+      platforms: game.platforms,
+      modifiedAt: new Date().toISOString(),
+    });
   }
 }

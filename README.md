@@ -31,6 +31,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 4. search component: I added a clear button that is used to delete the entered text, I think it is a better user experience
 
+5. I had to change the regex for the game name because there are games with numbers and special characters in their names
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

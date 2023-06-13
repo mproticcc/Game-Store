@@ -12,7 +12,10 @@ export class AdminComponent {
 
   createGame(): void {
     this.dialog.open(GameAdministrationModalComponent, {
-      data: {},
+      data: {
+        title: 'New Game',
+        buttonName: 'Create Game',
+      },
       position: { top: '40px' },
       width: '40%',
     });

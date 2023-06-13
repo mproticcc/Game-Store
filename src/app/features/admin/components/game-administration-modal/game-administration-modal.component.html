@@ -1,5 +1,5 @@
 <div class="dialog">
-  <h2 mat-dialog-title>New Game</h2>
+  <h2 mat-dialog-title>{{ data.title }}</h2>
   <mat-dialog-content class="mat-typography">
     <form class="content" [formGroup]="createGameForm">
       <div>
@@ -128,13 +128,13 @@
         </div>
         <br />
         <div class="group">
-          <input
+          <textarea
             type="text"
             placeholder="Game specification"
             name="specification"
             formControlName="specification"
             [ngClass]="{'invalid' : createGameForm.controls.specification.errors?.['pattern']}"
-          />
+          ></textarea>
           <p *ngIf="createGameForm.controls.specification.errors?.['pattern']">
             Game specification is required
           </p>
@@ -162,14 +162,26 @@
       </div>
     </form>
   </mat-dialog-content>
+
   <mat-dialog-actions align="center">
     <button
+      *ngIf="data.buttonName === 'Create Game'"
       mat-button
       mat-dialog-close
       [disabled]="createGameForm.invalid"
       (click)="createNewGame()"
     >
-      Create new game
+      {{ data.buttonName }}
+    </button>
+
+    <button
+      *ngIf="data.buttonName === 'Update game'"
+      mat-button
+      mat-dialog-close
+      [disabled]="createGameForm.invalid"
+      (click)="updateGame()"
+    >
+      {{ data.buttonName }}
     </button>
     <button mat-button mat-dialog-close>Close</button>
   </mat-dialog-actions>
