@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-shell-layout',
   templateUrl: './shell-layout.component.html',
-  styleUrls: ['./shell-layout.component.scss']
+  styleUrls: ['./shell-layout.component.scss'],
 })
-export class ShellLayoutComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class ShellLayoutComponent {}

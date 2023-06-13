@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
 import { Game } from 'src/app/features/models/game.model';
 
 @Component({
@@ -7,9 +6,7 @@ import { Game } from 'src/app/features/models/game.model';
   templateUrl: './game-card.component.html',
   styleUrls: ['./game-card.component.scss'],
 })
-export class GameCardComponent implements OnInit {
+export class GameCardComponent {
   @Input() game!: Game;
   constructor() {}
-
-  ngOnInit(): void {}
 }

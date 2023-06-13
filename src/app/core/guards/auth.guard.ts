@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanLoad, Router } from '@angular/router';
-import { NavigationService } from '../services/navigation.service';
 
 @Injectable({
   providedIn: 'root',

@@ -20,7 +20,13 @@ const COMPONENTS = [
 
 @NgModule({
   declarations: [...COMPONENTS],
-  imports: [CommonModule, RouterModule, MaterialModule, SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MaterialModule,
+    SharedModule,
+    ReactiveFormsModule,
+  ],
   exports: [...COMPONENTS],
 })
 export class CoreModule {}
