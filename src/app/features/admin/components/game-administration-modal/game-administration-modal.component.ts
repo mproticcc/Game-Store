@@ -32,11 +32,11 @@ export class GameAdministrationModalComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
     creatorFirstName: new FormControl(
-      JSON.parse(sessionStorage.getItem('User')).firstName,
+      JSON.parse(sessionStorage.getItem('User')!).firstName,
       [Validators.required, Validators.pattern(/^[A-Z][a-zA-Z]+$/)]
     ),
     creatorLastName: new FormControl(
-      JSON.parse(sessionStorage.getItem('User')).lastName,
+      JSON.parse(sessionStorage.getItem('User')!).lastName,
       [Validators.required, Validators.pattern(/^[A-Z][a-zA-Z]+$/)]
     ),
     image: new FormControl('', Validators.required),
@@ -72,7 +72,7 @@ export class GameAdministrationModalComponent implements OnInit {
     const game = {
       id: Math.round(Math.random() * date.getSeconds() * date.getMinutes()),
       ...this.createGameForm.value,
-      platforms: [+this.createGameForm.value.platforms],
+      platforms: [+this.createGameForm.value.platforms!],
       createdAt: new Date(),
       deletedAt: null,
       modifiedAt: null,
@@ -95,20 +95,20 @@ export class GameAdministrationModalComponent implements OnInit {
   updateGame(): void {
     const game: Game = {
       id: this.data.game.id,
-      name: this.createGameForm.value.name,
-      image: this.createGameForm.value.image,
-      imageWallpaper: this.createGameForm.value.imageWallpaper,
-      videoLink: this.createGameForm.value.videoLink,
-      price: +this.createGameForm.value.price,
-      description: this.createGameForm.value.description,
+      name: this.createGameForm.value.name!,
+      image: this.createGameForm.value.image!,
+      imageWallpaper: this.createGameForm.value.imageWallpaper!,
+      videoLink: this.createGameForm.value.videoLink!,
+      price: +this.createGameForm.value.price!,
+      description: this.createGameForm.value.description!,
       creatorFirstName: this.createGameForm.value.creatorFirstName,
       creatorLastName: this.createGameForm.value.creatorLastName,
-      publishDate: this.createGameForm.value.publishDate,
-      specification: this.createGameForm.value.specification,
-      platforms: [+this.createGameForm.value.platforms],
+      publishDate: this.createGameForm.value.publishDate!,
+      specification: this.createGameForm.value.specification!,
+      platforms: [+this.createGameForm.value.platforms!],
       createdAt: this.data.game.createdAt,
-      deletedAt: null,
-      modifiedAt: null,
+      deletedAt: null!,
+      modifiedAt: null!,
     };
 
     this.gameService
