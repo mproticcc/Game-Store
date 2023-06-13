@@ -18,11 +18,6 @@ export class GameAdministrationModalComponent implements OnInit {
 
   games?: Game[];
 
-  private creatorFirstName: string = JSON.parse(sessionStorage.getItem('User'))
-    .firstName;
-  private creatorLastName: string = JSON.parse(sessionStorage.getItem('User'))
-    .lastName;
-
   createGameForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -74,18 +69,9 @@ export class GameAdministrationModalComponent implements OnInit {
   createNewGame(): void {
     const date = new Date();
 
-    const game: Game = {
+    const game = {
       id: Math.round(Math.random() * date.getSeconds() * date.getMinutes()),
-      name: this.createGameForm.value.name,
-      image: this.createGameForm.value.image,
-      imageWallpaper: this.createGameForm.value.imageWallpaper,
-      videoLink: this.createGameForm.value.videoLink,
-      price: +this.createGameForm.value.price,
-      description: this.createGameForm.value.description,
-      creatorFirstName: this.createGameForm.value.creatorFirstName,
-      creatorLastName: this.createGameForm.value.creatorLastName,
-      publishDate: this.createGameForm.value.publishDate,
-      specification: this.createGameForm.value.specification,
+      ...this.createGameForm.value,
       platforms: [+this.createGameForm.value.platforms],
       createdAt: new Date(),
       deletedAt: null,
@@ -107,8 +93,26 @@ export class GameAdministrationModalComponent implements OnInit {
   }
 
   updateGame(): void {
+    const game: Game = {
+      id: this.data.game.id,
+      name: this.createGameForm.value.name,
+      image: this.createGameForm.value.image,
+      imageWallpaper: this.createGameForm.value.imageWallpaper,
+      videoLink: this.createGameForm.value.videoLink,
+      price: +this.createGameForm.value.price,
+      description: this.createGameForm.value.description,
+      creatorFirstName: this.createGameForm.value.creatorFirstName,
+      creatorLastName: this.createGameForm.value.creatorLastName,
+      publishDate: this.createGameForm.value.publishDate,
+      specification: this.createGameForm.value.specification,
+      platforms: [+this.createGameForm.value.platforms],
+      createdAt: this.data.game.createdAt,
+      deletedAt: null,
+      modifiedAt: null,
+    };
+
     this.gameService
-      .editGame(this.data.game)
+      .editGame(game)
       .pipe(take(1))
       .subscribe(() => {
         this.notificationService.snackbarNotification(
