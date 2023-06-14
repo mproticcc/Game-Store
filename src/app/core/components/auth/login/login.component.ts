@@ -34,12 +34,10 @@ export class LoginComponent {
       .login(user)
       .pipe(take(1))
       .subscribe((user: User[]) => {
-        if (user.length) {
+        if (user?.length) {
           this.authService.setUserData(user);
 
-          const firstName = JSON.parse(
-            sessionStorage.getItem('User')!
-          ).firstName;
+          const firstName = this.authService.getUserFirstName();
 
           this.notification.snackbarNotification(
             `Welcome ${firstName} !`,

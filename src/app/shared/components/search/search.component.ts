@@ -9,7 +9,6 @@ import { SearchService } from '../../services/search.service';
 export class SearchComponent {
   @ViewChild('search') search!: ElementRef;
 
-  inputValue: string = '';
   constructor(private searchService: SearchService) {}
 
   onSearch(searchValue: string): void {

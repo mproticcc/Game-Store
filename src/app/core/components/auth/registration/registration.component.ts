@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Role } from 'src/app/core/models/role.model';
 import { User } from 'src/app/core/models/user.model';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
+import { REGEX } from 'src/app/shared/consts/regex.model';
 
 @Component({
   selector: 'app-registration',
@@ -18,16 +19,16 @@ export class RegistrationComponent {
     {
       firstName: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[A-Z][a-zA-Z]+$/),
+        Validators.pattern(REGEX.firstUpperAllLethes),
       ]),
       lastName: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[A-Z][a-zA-Z]+$/),
+        Validators.pattern(REGEX.firstUpperAllLethes),
       ]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[^\s]+$/),
+        Validators.pattern(REGEX.everythingExceptSpace),
       ]),
       confirmPassword: new FormControl('', Validators.required),
     },

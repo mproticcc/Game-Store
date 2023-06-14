@@ -9,8 +9,6 @@ export class LoadingService {
 
   public readonly loading$ = this._loading.asObservable();
 
-  constructor() {}
-
   show(): void {
     this._loading.next(true);
   }

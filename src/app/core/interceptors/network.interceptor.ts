@@ -17,6 +17,7 @@ export class NetworkInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     this.loader.show();
+
     return next.handle(request).pipe(
       finalize(() => {
         this.loader.hide();

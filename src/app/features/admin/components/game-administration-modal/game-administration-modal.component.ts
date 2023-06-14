@@ -7,6 +7,8 @@ import { GameService } from 'src/app/features/services/game.service';
 import { PlatformService } from 'src/app/features/services/platform.service';
 import { Platform } from 'src/app/features/models/platform.model';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { REGEX } from 'src/app/shared/consts/regex.model';
+import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
 @Component({
   selector: 'app-game-administration-modal',
@@ -21,23 +23,21 @@ export class GameAdministrationModalComponent implements OnInit {
   createGameForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^[A-Z][\w!@#$%^&-:®*() ]{0,50}$/),
+      Validators.pattern(REGEX.gameName),
     ]),
     videoLink: new FormControl('', [
       Validators.required,
-      Validators.pattern(
-        /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))\/((?:[\w\-]+\?v=|embed\/|live\/|v\/)?)([\w\-]+)(\S+)?$/
-      ),
+      Validators.pattern(REGEX.youtube),
     ]),
     description: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
-    creatorFirstName: new FormControl(
-      JSON.parse(sessionStorage.getItem('User')!).firstName,
-      [Validators.required, Validators.pattern(/^[A-Z][a-zA-Z]+$/)]
-    ),
+    creatorFirstName: new FormControl(this.authService.getUserFirstName(), [
+      Validators.required,
+      Validators.pattern(REGEX.firstUpperAllLethes),
+    ]),
     creatorLastName: new FormControl(
       JSON.parse(sessionStorage.getItem('User')!).lastName,
-      [Validators.required, Validators.pattern(/^[A-Z][a-zA-Z]+$/)]
+      [Validators.required, Validators.pattern(REGEX.firstUpperAllLethes)]
     ),
     image: new FormControl('', Validators.required),
     imageWallpaper: new FormControl('', Validators.required),
@@ -50,6 +50,7 @@ export class GameAdministrationModalComponent implements OnInit {
     private gameService: GameService,
     private notificationService: NotificationService,
     private platformService: PlatformService,
+    private authService: AuthorizationService,
     @Inject(MAT_DIALOG_DATA)
     public data: {
       title: string;

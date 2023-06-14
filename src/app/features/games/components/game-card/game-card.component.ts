@@ -8,5 +8,4 @@ import { Game } from 'src/app/features/models/game.model';
 })
 export class GameCardComponent {
   @Input() game!: Game;
-  constructor() {}
 }

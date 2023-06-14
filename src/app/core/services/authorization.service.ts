@@ -34,11 +34,18 @@ export class AuthorizationService {
     return sessionStorage.getItem('Role') === Role.Admin;
   }
 
-  getUserId() {
+  getUserId(): number {
     if (!sessionStorage.getItem('User')) {
-      return 'nema';
+      return -1;
     }
     return JSON.parse(sessionStorage.getItem('User')!).id;
+  }
+
+  getUserFirstName(): string {
+    if (!sessionStorage.getItem('User')) {
+      return '';
+    }
+    return JSON.parse(sessionStorage.getItem('User')!).firstName;
   }
 
   setUserData(user: User[]): void {
