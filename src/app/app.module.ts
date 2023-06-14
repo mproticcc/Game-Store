@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NetworkInterceptor } from './core/interceptors/network.interceptor';
+import { UserIdInterceptor } from './core/interceptors/user-id.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,11 @@ import { NetworkInterceptor } from './core/interceptors/network.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: NetworkInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UserIdInterceptor,
       multi: true,
     },
   ],

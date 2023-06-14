@@ -1,5 +1,5 @@
 import { take } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
@@ -12,7 +12,7 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
@@ -23,8 +23,6 @@ export class LoginComponent implements OnInit {
     private route: Router,
     private notification: NotificationService
   ) {}
-
-  ngOnInit(): void {}
 
   loginUser(): void {
     const user: RegisterUser = {

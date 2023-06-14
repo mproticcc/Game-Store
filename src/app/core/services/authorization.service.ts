@@ -34,6 +34,13 @@ export class AuthorizationService {
     return sessionStorage.getItem('Role') === Role.Admin;
   }
 
+  getUserId() {
+    if (!sessionStorage.getItem('User')) {
+      return 'nema';
+    }
+    return JSON.parse(sessionStorage.getItem('User')!).id;
+  }
+
   setUserData(user: User[]): void {
     this.setNavigationLinkIn();
     sessionStorage.setItem('Role', user[0].role);
@@ -43,6 +50,7 @@ export class AuthorizationService {
         firstName: user[0].firstName,
         lastName: user[0].lastName,
         email: user[0].email,
+        id: user[0].id,
       })
     );
   }
