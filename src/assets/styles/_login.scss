@@ -97,6 +97,13 @@
   width: 25%;
 }
 
+@media screen and (max-width: 1200px) {
+  .log-in-class {
+    width: 40%;
+    margin-left: 20px;
+  }
+}
+
 .group {
   display: flex;
   flex-direction: column;
