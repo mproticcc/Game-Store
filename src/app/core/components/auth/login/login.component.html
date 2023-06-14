@@ -11,6 +11,9 @@
           name="email"
           formControlName="email"
         />
+        <p class="invalid" *ngIf="loginForm.controls.email.errors?.['email']">
+          Email is required and must be in standard form
+        </p>
       </div>
       <br /><br />
       <div class="group">
@@ -20,6 +23,12 @@
           name="password"
           formControlName="password"
         />
+        <p
+          class="invalid"
+          *ngIf="loginForm.controls.password.errors?.['pattern']"
+        >
+          Password should not contain space
+        </p>
       </div>
       <br />
       <p>
@@ -27,12 +36,7 @@
         <a [routerLink]="['/registration']" class="register">Register</a>
       </p>
 
-      <button
-        type="submit
-    "
-      >
-        LOGIN
-      </button>
+      <button type="submit" [disabled]="loginForm.invalid">LOGIN</button>
     </div>
   </form>
   <div class="img-content"></div>

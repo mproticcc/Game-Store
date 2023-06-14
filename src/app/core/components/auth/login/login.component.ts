@@ -1,11 +1,12 @@
 import { take } from 'rxjs';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
 import { RegisterUser } from 'src/app/core/models/register-user.model';
 import { User } from 'src/app/core/models/user.model';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { REGEX } from 'src/app/shared/consts/regex.model';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,11 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(REGEX.everythingExceptSpace),
+    ]),
   });
 
   constructor(

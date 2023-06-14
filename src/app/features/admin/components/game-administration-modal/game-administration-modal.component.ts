@@ -73,8 +73,11 @@ export class GameAdministrationModalComponent implements OnInit {
     const game = {
       id: Math.round(Math.random() * date.getSeconds() * date.getMinutes()),
       ...this.createGameForm.value,
+      publishDate: new Date(
+        this.createGameForm.value.publishDate
+      ).toISOString(),
       platforms: [+this.createGameForm.value.platforms!],
-      createdAt: new Date(),
+      createdAt: new Date().toISOString(),
       deletedAt: null,
       modifiedAt: null,
     };
