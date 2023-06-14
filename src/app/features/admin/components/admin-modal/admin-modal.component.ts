@@ -1,4 +1,4 @@
-import { NotificationService } from './../../../../shared/services/notification.service';
+import { NotificationService } from '../../../../shared/services/notification.service';
 import { catchError, take } from 'rxjs';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -11,11 +11,11 @@ import { REGEX } from 'src/app/shared/consts/regex.model';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
 @Component({
-  selector: 'app-game-administration-modal',
-  templateUrl: './game-administration-modal.component.html',
-  styleUrls: ['./game-administration-modal.component.scss'],
+  selector: 'app-admin-modal',
+  templateUrl: './admin-modal.component.html',
+  styleUrls: ['./admin-modal.component.scss'],
 })
-export class GameAdministrationModalComponent implements OnInit {
+export class AdminModalComponent implements OnInit {
   platforms?: Platform[];
 
   games?: Game[];

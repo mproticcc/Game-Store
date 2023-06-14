@@ -1,17 +1,17 @@
-import { NotificationService } from './../../../../shared/services/notification.service';
-import { GameService } from './../../../services/game.service';
+import { NotificationService } from '../../../../shared/services/notification.service';
+import { GameService } from '../../../services/game.service';
 import { Component, OnInit } from '@angular/core';
 import { catchError, take } from 'rxjs';
 import { Game } from 'src/app/features/models/game.model';
-import { GameAdministrationModalComponent } from '../game-administration-modal/game-administration-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AdminModalComponent } from '../admin-modal/admin-modal.component';
 
 @Component({
-  selector: 'app-games-table',
-  templateUrl: './games-table.component.html',
-  styleUrls: ['./games-table.component.scss'],
+  selector: 'app-table-of-games',
+  templateUrl: './table-of-games.component.html',
+  styleUrls: ['./table-of-games.component.scss'],
 })
-export class GamesTableComponent implements OnInit {
+export class TableOfGamesComponent implements OnInit {
   displayedColumns: string[] = [
     'dots',
     'id',
@@ -67,7 +67,7 @@ export class GamesTableComponent implements OnInit {
   }
 
   onEdit(game: Game): void {
-    this.dialog.open(GameAdministrationModalComponent, {
+    this.dialog.open(AdminModalComponent, {
       data: {
         title: 'Edit Game',
         buttonName: 'Update game',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { GameAdministrationModalComponent } from '../game-administration-modal/game-administration-modal.component';
+import { AdminModalComponent } from '../admin-modal/admin-modal.component';
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +11,7 @@ export class AdminComponent {
   constructor(private dialog: MatDialog) {}
 
   createGame(): void {
-    this.dialog.open(GameAdministrationModalComponent, {
+    this.dialog.open(AdminModalComponent, {
       data: {
         title: 'New Game',
         buttonName: 'Create Game',
