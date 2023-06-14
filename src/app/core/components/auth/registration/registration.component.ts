@@ -1,4 +1,4 @@
-import { take } from 'rxjs';
+import { catchError, take } from 'rxjs';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -57,7 +57,19 @@ export class RegistrationComponent {
 
     this.authorization
       .register(user)
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        catchError(() => {
+          this.notification.snackbarNotification(
+            'Registration failed',
+            'Ok',
+            'center',
+            'top',
+            3000
+          );
+          return null;
+        })
+      )
       .subscribe(() =>
         this.notification.snackbarNotification(
           'Successfully registered',

@@ -1,5 +1,5 @@
 import { NotificationService } from './../../../../shared/services/notification.service';
-import { take } from 'rxjs';
+import { catchError, take } from 'rxjs';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Game } from 'src/app/features/models/game.model';
@@ -81,7 +81,19 @@ export class GameAdministrationModalComponent implements OnInit {
 
     this.gameService
       .createNewGame(game)
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        catchError(() => {
+          this.notificationService.snackbarNotification(
+            'The game was not created',
+            'Ok',
+            'center',
+            'top',
+            3000
+          );
+          return null;
+        })
+      )
       .subscribe(() => {
         this.notificationService.snackbarNotification(
           'Game successful created',
@@ -114,7 +126,19 @@ export class GameAdministrationModalComponent implements OnInit {
 
     this.gameService
       .editGame(game)
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        catchError(() => {
+          this.notificationService.snackbarNotification(
+            'Something went wrong, game was not edited',
+            'Ok',
+            'center',
+            'top',
+            3000
+          );
+          return null;
+        })
+      )
       .subscribe(() => {
         this.notificationService.snackbarNotification(
           'Game successful edited',

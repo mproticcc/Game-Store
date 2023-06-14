@@ -1,7 +1,7 @@
 import { NotificationService } from './../../../../shared/services/notification.service';
 import { GameService } from './../../../services/game.service';
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs';
+import { catchError, take } from 'rxjs';
 import { Game } from 'src/app/features/models/game.model';
 import { GameAdministrationModalComponent } from '../game-administration-modal/game-administration-modal.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -40,7 +40,19 @@ export class GamesTableComponent implements OnInit {
   onDelete(game: Game): void {
     this.gameService
       .delete(game)
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        catchError(() => {
+          this.notification.snackbarNotification(
+            'Something went wrong, game was not deleted',
+            'Ok',
+            'center',
+            'top',
+            3000
+          );
+          return null;
+        })
+      )
       .subscribe(() => {
         this.notification.snackbarNotification(
           'Successfully deleted',
