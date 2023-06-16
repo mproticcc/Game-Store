@@ -49,7 +49,6 @@ export class AuthorizationService {
   }
 
   setUserData(user: User[]): void {
-    this.setNavigationLinkIn();
     sessionStorage.setItem('Role', user[0].role);
     sessionStorage.setItem(
       'User',
@@ -60,6 +59,7 @@ export class AuthorizationService {
         id: user[0].id,
       })
     );
+    this.setNavigationLinkIn();
   }
 
   logOutUser(): void {
@@ -78,17 +78,16 @@ export class AuthorizationService {
   }
 
   private setNavigationLinkIn(): void {
+    if (this.isAdmin()) {
+      this.navigationService
+        .setNavigationRules(2, true)
+        .pipe(take(1))
+        .subscribe();
+    }
     forkJoin({
       login: this.navigationService.setNavigationRules(3, false).pipe(take(1)),
       logOut: this.navigationService.setNavigationRules(4, true).pipe(take(1)),
-    }).subscribe(() => {
-      if (this.isAdmin()) {
-        this.navigationService
-          .setNavigationRules(2, true)
-          .pipe(take(1))
-          .subscribe();
-      }
-    });
+    }).subscribe(() => {});
   }
 
   private setNavigationLinkOut(): void {
