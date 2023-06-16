@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanLoad, Router } from '@angular/router';
 import { AuthorizationService } from '../services/authorization.service';
-import { NavigationService } from '../services/navigation.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +8,7 @@ import { NavigationService } from '../services/navigation.service';
 export class AdminGuard implements CanActivate, CanLoad {
   constructor(
     private route: Router,
-    private authorization: AuthorizationService,
-    private navigationService: NavigationService
+    private authorization: AuthorizationService
   ) {}
 
   canActivate(): boolean {
