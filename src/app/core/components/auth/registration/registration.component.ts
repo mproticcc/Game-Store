@@ -1,7 +1,13 @@
 import { catchError, take } from 'rxjs';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { Role } from 'src/app/core/models/role.model';
 import { User } from 'src/app/core/models/user.model';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
@@ -33,7 +39,7 @@ export class RegistrationComponent {
       confirmPassword: new FormControl('', Validators.required),
     },
     {
-      validators: this.isPasswordMatched.bind(this),
+      validators: [this.isPasswordMatched('password', 'confirmPassword')],
     }
   );
 
@@ -46,7 +52,7 @@ export class RegistrationComponent {
     const date = new Date();
 
     const user: User = {
-      id: Math.round(Math.random() * date.getSeconds()),
+      id: Math.round(Math.random() * date.getMinutes() * date.getSeconds()),
       firstName: this.registrationForm.value.firstName!,
       lastName: this.registrationForm.value.lastName!,
       email: this.registrationForm.value.email!,
@@ -59,7 +65,7 @@ export class RegistrationComponent {
       .register(user)
       .pipe(
         take(1),
-        catchError(() => {
+        catchError((err: string) => {
           this.notification.snackbarNotification(
             'Registration failed',
             'Ok',
@@ -67,7 +73,7 @@ export class RegistrationComponent {
             'top',
             3000
           );
-          return null;
+          return err;
         })
       )
       .subscribe(() =>
@@ -81,14 +87,26 @@ export class RegistrationComponent {
       );
   }
 
-  private isPasswordMatched(formGroup: FormGroup) {
-    const { value: password } = formGroup.get('password')!;
-    const { value: confirmPassword } = formGroup.get('confirmPassword')!;
-    if (password !== confirmPassword) {
-      this.arePasswordsEqual = true;
-    } else {
-      this.arePasswordsEqual = false;
-    }
-    return password === confirmPassword ? null : { passwordNotMatch: true };
+  private isPasswordMatched(
+    password: string,
+    checkPassword: string
+  ): ValidatorFn {
+    return (controls: AbstractControl) => {
+      const control = controls.get(password);
+      const checkControl = controls.get(checkPassword);
+
+      if (checkControl?.errors && !checkControl.errors['pattern']) {
+        return null;
+      }
+
+      if (control?.value !== checkControl?.value) {
+        controls.get(checkPassword)?.setErrors({ pattern: true });
+        this.arePasswordsEqual = true;
+        return { pattern: true };
+      } else {
+        this.arePasswordsEqual = false;
+        return null;
+      }
+    };
   }
 }

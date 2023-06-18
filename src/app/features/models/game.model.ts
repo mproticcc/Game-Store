@@ -11,7 +11,7 @@ export interface Game {
   creatorLastName: string;
   publishDate: string;
   platforms: number[];
-  createdAt: Date;
-  deletedAt: Date;
-  modifiedAt: Date;
+  createdAt: String;
+  deletedAt: Date | null;
+  modifiedAt: Date | null;
 }

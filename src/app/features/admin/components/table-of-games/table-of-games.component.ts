@@ -25,8 +25,6 @@ export class TableOfGamesComponent implements OnInit {
 
   dataSource!: Game[];
 
-  isAdmin: boolean = false;
-
   constructor(
     private gameService: GameService,
     private notification: NotificationService,
@@ -42,7 +40,7 @@ export class TableOfGamesComponent implements OnInit {
       .delete(game)
       .pipe(
         take(1),
-        catchError(() => {
+        catchError((err: string) => {
           this.notification.snackbarNotification(
             'Something went wrong, game was not deleted',
             'Ok',
@@ -50,7 +48,7 @@ export class TableOfGamesComponent implements OnInit {
             'top',
             3000
           );
-          return null;
+          return err;
         })
       )
       .subscribe(() => {

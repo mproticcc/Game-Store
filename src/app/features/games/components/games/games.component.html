@@ -3,7 +3,7 @@
 <ng-container *ngIf="!(loading$ | async)">
   <div
     class="order"
-    *ngIf="games?.length && (loading$ | async) == false; else elseBlock"
+    *ngIf="games?.length && !(loading$ | async); else elseBlock"
   >
     <app-game-card *ngFor="let game of games" [game]="game"></app-game-card>
   </div>

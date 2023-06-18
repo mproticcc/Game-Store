@@ -25,7 +25,7 @@ export class GameService {
     return this.http.delete(`${environment.baseApiURL}games/${game.id}`);
   }
 
-  createNewGame(game): Observable<Game> {
+  createNewGame(game: Game): Observable<Game> {
     return this.http.post<Game>(`${environment.baseApiURL}games`, game);
   }
 

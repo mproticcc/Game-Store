@@ -70,11 +70,19 @@ export class AdminModalComponent implements OnInit {
   createNewGame(): void {
     const date = new Date();
 
-    const game = {
+    const game: Game = {
       id: Math.round(Math.random() * date.getSeconds() * date.getMinutes()),
-      ...this.createGameForm.value,
+      name: this.createGameForm.value.name!,
+      image: this.createGameForm.value.image!,
+      imageWallpaper: this.createGameForm.value.imageWallpaper!,
+      videoLink: this.createGameForm.value.videoLink!,
+      price: +this.createGameForm.value.price!,
+      description: this.createGameForm.value.description!,
+      specification: this.createGameForm.value.specification!,
+      creatorFirstName: this.createGameForm.value.creatorFirstName!,
+      creatorLastName: this.createGameForm.value.creatorLastName,
       publishDate: new Date(
-        this.createGameForm.value.publishDate
+        this.createGameForm.value.publishDate!
       ).toISOString(),
       platforms: [+this.createGameForm.value.platforms!],
       createdAt: new Date().toISOString(),
@@ -86,7 +94,7 @@ export class AdminModalComponent implements OnInit {
       .createNewGame(game)
       .pipe(
         take(1),
-        catchError(() => {
+        catchError((err: string) => {
           this.notificationService.snackbarNotification(
             'The game was not created',
             'Ok',
@@ -94,7 +102,7 @@ export class AdminModalComponent implements OnInit {
             'top',
             3000
           );
-          return null;
+          return err;
         })
       )
       .subscribe(() => {
@@ -117,7 +125,7 @@ export class AdminModalComponent implements OnInit {
       videoLink: this.createGameForm.value.videoLink!,
       price: +this.createGameForm.value.price!,
       description: this.createGameForm.value.description!,
-      creatorFirstName: this.createGameForm.value.creatorFirstName,
+      creatorFirstName: this.createGameForm.value.creatorFirstName!,
       creatorLastName: this.createGameForm.value.creatorLastName,
       publishDate: this.createGameForm.value.publishDate!,
       specification: this.createGameForm.value.specification!,
@@ -131,7 +139,7 @@ export class AdminModalComponent implements OnInit {
       .editGame(game)
       .pipe(
         take(1),
-        catchError(() => {
+        catchError((err: string) => {
           this.notificationService.snackbarNotification(
             'Something went wrong, game was not edited',
             'Ok',
@@ -139,7 +147,7 @@ export class AdminModalComponent implements OnInit {
             'top',
             3000
           );
-          return null;
+          return err;
         })
       )
       .subscribe(() => {

@@ -20,8 +20,8 @@ export class AuthorizationService {
     private navigationService: NavigationService
   ) {}
 
-  login(user: RegisterUser): Observable<RegisterUser[]> {
-    return this.http.get<RegisterUser[]>(
+  login(user: RegisterUser): Observable<User[]> {
+    return this.http.get<User[]>(
       `${environment.baseApiURL}users?email=${user.email}&password=${user.password}`
     );
   }
@@ -35,17 +35,19 @@ export class AuthorizationService {
   }
 
   getUserId(): number {
-    if (!sessionStorage.getItem('User')) {
+    const user = sessionStorage.getItem('User');
+    if (!user) {
       return -1;
     }
-    return JSON.parse(sessionStorage.getItem('User')!).id;
+    return JSON.parse(user).id;
   }
 
   getUserFirstName(): string {
-    if (!sessionStorage.getItem('User')) {
+    const user = sessionStorage.getItem('User');
+    if (!user) {
       return '';
     }
-    return JSON.parse(sessionStorage.getItem('User')!).firstName;
+    return JSON.parse(user).firstName;
   }
 
   setUserData(user: User[]): void {
@@ -60,6 +62,7 @@ export class AuthorizationService {
       })
     );
     this.setNavigationLinkIn();
+    this.route.navigateByUrl('/admin');
   }
 
   logOutUser(): void {
