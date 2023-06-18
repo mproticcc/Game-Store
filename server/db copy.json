@@ -141,17 +141,17 @@
     {
       "id": 1,
       "name": "Pc",
-      "image": "assets/images/icons/pc-logo.png"
+      "image": "assets/images/platforms/pc-logo.png"
     },
     {
       "id": 2,
       "name": "Playstation",
-      "image": "assets/images/icons/playstation-logo.png"
+      "image": "assets/images/platforms/playstation-logo.png"
     },
     {
       "id": 3,
       "name": "Xbox",
-      "image": "assets/images/icons/xbox-logo.png"
+      "image": "assets/images/platforms/xbox-logo.png"
     }
   ],
   "users": [
