@@ -34,10 +34,10 @@ export class AuthorizationService {
     return sessionStorage.getItem('Role') === Role.Admin;
   }
 
-  getUserId(): number {
+  getUserId(): string {
     const user = sessionStorage.getItem('User');
     if (!user) {
-      return -1;
+      return 'ne postoji';
     }
     return JSON.parse(user).id;
   }
