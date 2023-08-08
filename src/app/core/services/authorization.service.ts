@@ -1,5 +1,5 @@
 import { NotificationService } from './../../shared/services/notification.service';
-import { Observable, forkJoin, take } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterUser } from '../models/register-user.model';
@@ -7,18 +7,49 @@ import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 import { Role } from '../models/role.model';
 import { Router } from '@angular/router';
-import { NavigationService } from './navigation.service';
+
+import { Link } from '../models/link-model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthorizationService {
+  links: Link[] = [
+    {
+      id: 1,
+      name: 'Home',
+      path: 'games',
+      rules: true,
+    },
+    {
+      id: 2,
+      name: 'Admin',
+      path: 'admin',
+      rules: false,
+    },
+    {
+      id: 3,
+      name: 'Login',
+      path: 'login',
+      rules: true,
+    },
+    {
+      id: 4,
+      name: 'Logout',
+      path: '',
+      rules: false,
+    },
+  ];
   constructor(
     private http: HttpClient,
     private route: Router,
-    private notification: NotificationService,
-    private navigationService: NavigationService
+    private notification: NotificationService
   ) {}
+
+  getAllLinks(): Observable<Link[]> {
+    const link = of(this.links);
+    return link;
+  }
 
   login(user: RegisterUser): Observable<User[]> {
     return this.http.get<User[]>(
@@ -37,7 +68,7 @@ export class AuthorizationService {
   getUserId(): string {
     const user = sessionStorage.getItem('User');
     if (!user) {
-      return 'ne postoji';
+      return 'Does not exist';
     }
     return JSON.parse(user).id;
   }
@@ -82,22 +113,15 @@ export class AuthorizationService {
 
   private setNavigationLinkIn(): void {
     if (this.isAdmin()) {
-      this.navigationService
-        .setNavigationRules(2, true)
-        .pipe(take(1))
-        .subscribe();
+      this.links[1].rules = true;
     }
-    forkJoin({
-      login: this.navigationService.setNavigationRules(3, false).pipe(take(1)),
-      logOut: this.navigationService.setNavigationRules(4, true).pipe(take(1)),
-    }).subscribe(() => {});
+    this.links[2].rules = false;
+    this.links[3].rules = true;
   }
 
   private setNavigationLinkOut(): void {
-    forkJoin({
-      login: this.navigationService.setNavigationRules(3, true).pipe(take(1)),
-      logOut: this.navigationService.setNavigationRules(4, false).pipe(take(1)),
-      admin: this.navigationService.setNavigationRules(2, false).pipe(take(1)),
-    }).subscribe();
+    this.links[2].rules = true;
+    this.links[3].rules = false;
+    this.links[1].rules = false;
   }
 }

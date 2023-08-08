@@ -1,7 +1,6 @@
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
-import { take } from 'rxjs';
-import { NavigationService } from './../../../services/navigation.service';
-import { Component, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Link } from 'src/app/core/models/link-model';
 
 @Component({
@@ -9,16 +8,44 @@ import { Link } from 'src/app/core/models/link-model';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  links?: Link[];
+export class HeaderComponent implements OnInit, OnDestroy {
+  private subscription$: Subject<void> = new Subject<void>();
 
-  constructor(
-    private navService: NavigationService,
-    private authService: AuthorizationService
-  ) {}
+  links?: Link[] = [
+    {
+      id: 1,
+      name: 'Home',
+      path: 'games',
+      rules: true,
+    },
+    {
+      id: 2,
+      name: 'Admin',
+      path: 'admin',
+      rules: false,
+    },
+    {
+      id: 3,
+      name: 'Login',
+      path: 'login',
+      rules: true,
+    },
+    {
+      id: 4,
+      name: 'Logout',
+      path: '',
+      rules: false,
+    },
+  ];
+
+  constructor(private authService: AuthorizationService) {}
 
   ngOnInit(): void {
     this.getAllLink();
+  }
+  ngOnDestroy(): void {
+    this.subscription$.next();
+    this.subscription$.complete();
   }
 
   logoutUser(): void {
@@ -27,9 +54,9 @@ export class HeaderComponent implements OnInit {
   }
 
   private getAllLink(): void {
-    this.navService
-      .getAll()
-      .pipe(take(1))
-      .subscribe((links) => (this.links = links));
+    this.authService
+      .getAllLinks()
+      .pipe(takeUntil(this.subscription$))
+      .subscribe((links) => ((this.links = links), console.log(links)));
   }
 }

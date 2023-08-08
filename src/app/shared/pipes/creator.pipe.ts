@@ -13,7 +13,7 @@ export class CreatorPipe implements PipeTransform {
       return game.creatorFirstName;
     }
     if (!game.creatorFirstName && !game.creatorLastName) {
-      return 'Greska!';
+      return 'Error!';
     }
     return `${game.creatorFirstName} ${game.creatorLastName}`;
   }

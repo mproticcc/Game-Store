@@ -45,7 +45,7 @@ export class GamesComponent implements OnInit, OnDestroy {
   }
   private getSearchValue(): void {
     this.searchService.searchedValue$
-      .pipe(takeUntil(this.subscription$), debounceTime(2500))
+      .pipe(takeUntil(this.subscription$), debounceTime(1500))
       .subscribe((value) => {
         this.searchedValue = value;
         this.getGamesByName();

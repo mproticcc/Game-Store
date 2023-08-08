@@ -191,31 +191,5 @@
       "role": "moderator",
       "createdAt": "2023-05-02T10:58:01.113Z"
     }
-  ],
-  "links": [
-    {
-      "id": 1,
-      "name": "Home",
-      "path": "games",
-      "rules": true
-    },
-    {
-      "id": 2,
-      "name": "Admin",
-      "path": "admin",
-      "rules": false
-    },
-    {
-      "id": 3,
-      "name": "Login",
-      "path": "login",
-      "rules": true
-    },
-    {
-      "id": 4,
-      "name": "Logout",
-      "path": "",
-      "rules": false
-    }
   ]
 }
