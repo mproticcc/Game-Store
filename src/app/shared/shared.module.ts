@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MaterialModule } from './modules/material.module';
 import { CloseButtonComponent } from './components/close-button/close-button.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 const COMPONENTS = [
   SearchComponent,
@@ -20,7 +21,7 @@ const PIPES = [DescriptionLimitPipe, CreatorPipe];
 const DIRECTIVES = [PriceDirective];
 
 @NgModule({
-  declarations: [...COMPONENTS, ...PIPES, ...DIRECTIVES],
+  declarations: [...COMPONENTS, ...PIPES, ...DIRECTIVES, DialogComponent],
   imports: [CommonModule, RouterModule, MaterialModule],
   exports: [...COMPONENTS, ...PIPES, ...DIRECTIVES],
 })

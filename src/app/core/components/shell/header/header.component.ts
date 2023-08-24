@@ -38,6 +38,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
+  userName?: String;
+
   constructor(private authService: AuthorizationService) {}
 
   ngOnInit(): void {
@@ -57,6 +59,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService
       .getAllLinks()
       .pipe(takeUntil(this.subscription$))
-      .subscribe((links) => ((this.links = links), console.log(links)));
+      .subscribe((links) => (this.links = links));
+    this.userName = this.authService.getUserFirstName();
   }
 }

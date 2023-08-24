@@ -1,0 +1,20 @@
+@import "../../../../assets/styles/variables";
+.dialog {
+  background-color: $fire-gradient;
+}
+
+button {
+  border-radius: 4px;
+  color: $bg-color;
+  background-color: $button-hover;
+  border: none;
+  font-size: 16px;
+  margin: 5px 10px;
+  width: max-content;
+
+  &:hover {
+    color: $h-color;
+    background-color: $button-text-hover;
+    cursor: pointer;
+  }
+}

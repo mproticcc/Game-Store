@@ -6,6 +6,7 @@ import { RegistrationComponent } from './core/components/auth/registration/regis
 import { ShellLayoutComponent } from './core/components/shell/shell-layout/shell-layout.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AdminGuard } from './core/guards/admin.guard';
+import { ConfirmDeactivateGuard } from './core/guards/confirm-deactivate.guard';
 
 const routes: Routes = [
   {
@@ -38,11 +39,13 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [AuthGuard],
+    canDeactivate: [ConfirmDeactivateGuard],
   },
   {
     path: 'registration',
     component: RegistrationComponent,
     canActivate: [AuthGuard],
+    canDeactivate: [ConfirmDeactivateGuard],
   },
   {
     path: '**',
